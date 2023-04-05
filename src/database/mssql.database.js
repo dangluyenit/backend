@@ -15,8 +15,8 @@ const AppDataSource = new DataSource({
   subscribers: [],
   migrations: [],
   options: {
-    'encrypt': false
-  }
+    encrypt: false,
+  },
 });
 
 AppDataSource.initialize()
