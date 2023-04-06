@@ -1,30 +1,19 @@
 'use strict';
 
-const { DataSource } = require('typeorm');
+const { Sequelize } = require('sequelize');
 
-const AppDataSource = new DataSource({
-  type: 'mssql',
-  host: process.env.DB_HOST,
-  port: 1433,
+const sequelize = new Sequelize({
+  database: process.env.DB_NAME,
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  synchronize: false,
+  host: process.env.DB_HOST,
+  dialect: 'mssql',
   logging: true,
-  entities: [],
-  subscribers: [],
-  migrations: [],
-  options: {
-    encrypt: false,
-  },
 });
 
-AppDataSource.initialize()
-  .then(() => {
-    console.log('Database connected');
-  })
-  .catch((error) => {
-    console.log('Database connection error: ', error);
-  });
-
-module.exports = AppDataSource;
+sequelize
+  .authenticate()
+  .then(() => console.log('Connection has been established successfully.'))
+  .catch((error) =>
+    console.error('Unable to connect to the database: ', error)
+  );
