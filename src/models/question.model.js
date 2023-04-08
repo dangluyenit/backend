@@ -12,7 +12,7 @@ class Question {
   }
 
   set id(id) {
-    return this._id = id;
+    return (this._id = id);
   }
 
   get content() {
@@ -20,7 +20,7 @@ class Question {
   }
 
   set content(content) {
-    return this._content = content;
+    return (this._content = content);
   }
 
   get idBankQuestion() {
@@ -28,6 +28,6 @@ class Question {
   }
 
   set idBankQuestion(idBankQuestion) {
-    return this._idBankQuestion = idBankQuestion;
+    return (this._idBankQuestion = idBankQuestion);
   }
 }

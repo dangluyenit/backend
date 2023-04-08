@@ -3,7 +3,7 @@
 const { DataSource } = require('typeorm');
 
 const dataSource = new DataSource({
-  type: "mssql",
+  type: 'mssql',
   host: process.env.DB_HOST,
   port: 1433,
   username: process.env.DB_USERNAME,
@@ -28,13 +28,18 @@ const dataSource = new DataSource({
   ],
   extra: {
     options: {
-      encrypt: false
-    }
-  }
+      encrypt: false,
+    },
+  },
 });
 
-dataSource.initialize()
-  .then(async () => console.log('Connection has been established successfully.'))
-  .catch((error) => console.error('Unable to connect to the database: ', error));
+dataSource
+  .initialize()
+  .then(async () =>
+    console.log('Connection has been established successfully.')
+  )
+  .catch((error) =>
+    console.error('Unable to connect to the database: ', error)
+  );
 
 module.exports = dataSource;

@@ -26,10 +26,10 @@ module.exports = new EntitySchema({
       target: table.TEACHER,
       type: 'many-to-one',
       joinColumn: {
-        name: 'teacherCode'
+        name: 'teacherCode',
       },
       joinTable: true,
-      cascade: true
-    }
-  }
+      cascade: true,
+    },
+  },
 });

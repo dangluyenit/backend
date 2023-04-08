@@ -14,7 +14,7 @@ const table = {
   BANK_QUESTION: 'BankQuestion',
   STUDENT_QUESTION_ANSWER: 'StudentQuestionAnswer',
   QUESTION_ANSWER: 'QuestionAnswer',
-  SCORE: 'Score'
+  SCORE: 'Score',
 };
 
 module.exports = { table };

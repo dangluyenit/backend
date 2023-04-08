@@ -17,7 +17,7 @@ class Course {
   }
 
   set id(id) {
-    return this._id = id;
+    return (this._id = id);
   }
 
   get name() {
@@ -25,7 +25,7 @@ class Course {
   }
 
   set name(name) {
-    return this._name = name;
+    return (this._name = name);
   }
 
   get teacherCode() {
@@ -33,7 +33,7 @@ class Course {
   }
 
   set teacherCode(teacherCode) {
-    return this._teacherCode = teacherCode;
+    return (this._teacherCode = teacherCode);
   }
 }
 

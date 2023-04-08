@@ -14,7 +14,7 @@ class StudentQuestionAnswer {
   }
 
   set id(id) {
-    return this._id = id;
+    return (this._id = id);
   }
 
   get answer() {
@@ -22,7 +22,7 @@ class StudentQuestionAnswer {
   }
 
   set answer(answer) {
-    return this._answer = answer;
+    return (this._answer = answer);
   }
 
   get isCorrect() {
@@ -30,7 +30,7 @@ class StudentQuestionAnswer {
   }
 
   set isCorrect(isCorrect) {
-    return this._isCorrect = isCorrect;
+    return (this._isCorrect = isCorrect);
   }
 
   get studentCode() {
@@ -38,7 +38,7 @@ class StudentQuestionAnswer {
   }
 
   set studentCode(studentCode) {
-    return this._studentCode = studentCode;
+    return (this._studentCode = studentCode);
   }
 
   get idTestQuestion() {
@@ -46,6 +46,6 @@ class StudentQuestionAnswer {
   }
 
   set idTestQuestion(idTestQuestion) {
-    return this._idTestQuestion = idTestQuestion;
+    return (this._idTestQuestion = idTestQuestion);
   }
 }

@@ -17,28 +17,28 @@ module.exports = new EntitySchema({
       target: table.STUDENT,
       type: 'many-to-one',
       joinColumn: {
-        name: 'studentCode'
+        name: 'studentCode',
       },
       joinTable: true,
-      cascade: true
+      cascade: true,
     },
     idTest: {
       target: table.TEST,
       type: 'many-to-one',
       joinColumn: {
-        name: 'idTest'
+        name: 'idTest',
       },
       joinTable: true,
-      cascade: true
+      cascade: true,
     },
     idQuestion: {
       target: table.QUESTION,
       type: 'many-to-one',
       joinColumn: {
-        name: 'idQuestion'
+        name: 'idQuestion',
       },
       joinTable: true,
-      cascade: true
-    }
-  }
+      cascade: true,
+    },
+  },
 });

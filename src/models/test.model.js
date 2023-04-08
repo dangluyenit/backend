@@ -14,7 +14,7 @@ class Test {
   }
 
   set id(id) {
-    return this._id = id;
+    return (this._id = id);
   }
 
   get name() {
@@ -22,7 +22,7 @@ class Test {
   }
 
   set name(name) {
-    return this._name = name;
+    return (this._name = name);
   }
 
   get createdTime() {
@@ -30,7 +30,7 @@ class Test {
   }
 
   set createdTime(createdTime) {
-    return this._createdTime = createdTime;
+    return (this._createdTime = createdTime);
   }
 
   get quantityQuestion() {
@@ -38,7 +38,7 @@ class Test {
   }
 
   set quantityQuestion(quantityQuestion) {
-    return this._quantityQuestion = quantityQuestion;
+    return (this._quantityQuestion = quantityQuestion);
   }
 
   get teacherCode() {
@@ -46,6 +46,6 @@ class Test {
   }
 
   set teacherCode(teacherCode) {
-    return this._teacherCode = teacherCode;
+    return (this._teacherCode = teacherCode);
   }
 }

@@ -15,7 +15,7 @@ class Lesson {
   }
 
   set id(id) {
-    return this._id = id;
+    return (this._id = id);
   }
 
   get name() {
@@ -23,7 +23,7 @@ class Lesson {
   }
 
   set name(name) {
-    return this._name = name;
+    return (this._name = name);
   }
 
   get content() {
@@ -31,7 +31,7 @@ class Lesson {
   }
 
   set content(content) {
-    return this._content = content;
+    return (this._content = content);
   }
 
   get image() {
@@ -39,7 +39,7 @@ class Lesson {
   }
 
   set image(image) {
-    return this._image = image;
+    return (this._image = image);
   }
 
   get video() {
@@ -47,7 +47,7 @@ class Lesson {
   }
 
   set video(video) {
-    return this._video = video;
+    return (this._video = video);
   }
 
   get idCourse() {
@@ -55,6 +55,6 @@ class Lesson {
   }
 
   set idCourse(idCourse) {
-    return this._idCourse = idCourse;
+    return (this._idCourse = idCourse);
   }
 }

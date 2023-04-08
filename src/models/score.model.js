@@ -14,7 +14,7 @@ class Score {
   }
 
   set id(id) {
-    return this._id = id;
+    return (this._id = id);
   }
 
   get submissionTime() {
@@ -22,7 +22,7 @@ class Score {
   }
 
   set submissionTime(submissionTime) {
-    return this._submissionTime = submissionTime;
+    return (this._submissionTime = submissionTime);
   }
 
   get score() {
@@ -30,7 +30,7 @@ class Score {
   }
 
   set score(score) {
-    return this._score = score;
+    return (this._score = score);
   }
 
   get idTest() {
@@ -38,7 +38,7 @@ class Score {
   }
 
   set idTest(idTest) {
-    return this._idTest = idTest;
+    return (this._idTest = idTest);
   }
 
   get studentCode() {
@@ -46,6 +46,6 @@ class Score {
   }
 
   set studentCode(studentCode) {
-    return this._studentCode = studentCode;
+    return (this._studentCode = studentCode);
   }
 }

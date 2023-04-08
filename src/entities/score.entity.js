@@ -12,29 +12,30 @@ module.exports = new EntitySchema({
       generated: 'uuid',
     },
     submissionTime: {
-      type: 'datetime'
+      type: 'datetime',
     },
     score: {
-      type: 'float'
-    }
-  }, relations: {
+      type: 'float',
+    },
+  },
+  relations: {
     idTest: {
       target: table.TEST,
       type: 'many-to-one',
       joinColumn: {
-        name: 'idTest'
+        name: 'idTest',
       },
       joinTable: true,
-      cascade: true
+      cascade: true,
     },
     studentScore: {
       target: table.STUDENT,
       type: 'many-to-one',
       joinColumn: {
-        name: 'studentScore'
+        name: 'studentScore',
       },
       joinTable: true,
-      cascade: true
-    }
-  }
+      cascade: true,
+    },
+  },
 });

@@ -12,7 +12,7 @@ class JoinCourse {
   }
 
   set id(id) {
-    return this._id = id;
+    return (this._id = id);
   }
 
   get idCourse() {
@@ -20,7 +20,7 @@ class JoinCourse {
   }
 
   set idCourse(idCourse) {
-    return this._idCourse = idCourse;
+    return (this._idCourse = idCourse);
   }
 
   get studentCode() {
@@ -28,6 +28,6 @@ class JoinCourse {
   }
 
   set studentCode(studentCode) {
-    return this._studentCode = studentCode;
+    return (this._studentCode = studentCode);
   }
 }

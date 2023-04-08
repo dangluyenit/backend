@@ -15,7 +15,7 @@ class BankQuestion {
   }
 
   set id(id) {
-    return this._id = id;
+    return (this._id = id);
   }
 
   get name() {
@@ -23,7 +23,7 @@ class BankQuestion {
   }
 
   set name(name) {
-    return this._name = name;
+    return (this._name = name);
   }
 }
 

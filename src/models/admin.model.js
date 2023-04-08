@@ -11,7 +11,7 @@ class Admin {
   }
 
   set username(username) {
-    return this._username = username;
+    return (this._username = username);
   }
 
   get password() {
@@ -19,7 +19,7 @@ class Admin {
   }
 
   set password(password) {
-    return this._password = password;
+    return (this._password = password);
   }
 }
 

@@ -13,7 +13,7 @@ class QuestionAnswer {
   }
 
   set id(id) {
-    return this._id = id;
+    return (this._id = id);
   }
 
   get name() {
@@ -21,7 +21,7 @@ class QuestionAnswer {
   }
 
   set name(name) {
-    return this._name = name;
+    return (this._name = name);
   }
 
   get isCorrect() {
@@ -29,7 +29,7 @@ class QuestionAnswer {
   }
 
   set isCorrect(isCorrect) {
-    return this._isCorrect = isCorrect;
+    return (this._isCorrect = isCorrect);
   }
 
   get idQuestion() {
@@ -37,6 +37,6 @@ class QuestionAnswer {
   }
 
   set idQuestion(idQuestion) {
-    return this._idQuestion = idQuestion;
+    return (this._idQuestion = idQuestion);
   }
 }

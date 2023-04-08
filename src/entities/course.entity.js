@@ -13,17 +13,17 @@ module.exports = new EntitySchema({
     },
     name: {
       type: 'nvarchar',
-    }
+    },
   },
   relations: {
     teacherCode: {
       target: table.TEACHER,
       type: 'many-to-one',
       joinColumn: {
-        name: 'teacherCode'
+        name: 'teacherCode',
       },
       joinTable: true,
-      cascade: true
-    }
-  }
+      cascade: true,
+    },
+  },
 });

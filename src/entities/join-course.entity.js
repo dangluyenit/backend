@@ -10,25 +10,26 @@ module.exports = new EntitySchema({
       primary: true,
       type: 'uuid',
       generated: 'uuid',
-    }
-  }, relations: {
+    },
+  },
+  relations: {
     idCourse: {
       target: table.COURSE,
       type: 'many-to-one',
       joinColumn: {
-        name: 'idCourse'
+        name: 'idCourse',
       },
       joinTable: true,
-      cascade: true
+      cascade: true,
     },
     studentCode: {
       target: table.STUDENT,
       type: 'many-to-one',
       joinColumn: {
-        name: 'studentCode'
+        name: 'studentCode',
       },
       joinTable: true,
-      cascade: true
-    }
-  }
+      cascade: true,
+    },
+  },
 });

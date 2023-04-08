@@ -12,20 +12,21 @@ module.exports = new EntitySchema({
       generated: 'uuid',
     },
     answer: {
-      type: 'nvarchar'
+      type: 'nvarchar',
     },
     isCorrect: {
-      type: 'bit'
-    }
-  }, relations: {
+      type: 'bit',
+    },
+  },
+  relations: {
     idQuestion: {
       target: table.QUESTION,
       type: 'many-to-one',
       joinColumn: {
-        name: 'idQuestion'
+        name: 'idQuestion',
       },
       joinTable: true,
-      cascade: true
-    }
-  }
+      cascade: true,
+    },
+  },
 });

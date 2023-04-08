@@ -17,25 +17,25 @@ module.exports = new EntitySchema({
       type: 'nvarchar',
     },
     dob: {
-      type: 'date'
+      type: 'date',
     },
     address: {
-      type: 'nvarchar'
+      type: 'nvarchar',
     },
     email: {
-      type: 'varchar'
+      type: 'varchar',
     },
     password: {
-      type: 'varchar'
+      type: 'varchar',
     },
     phone: {
-      type: 'varchar'
+      type: 'varchar',
     },
     image: {
-      type: 'varchar'
+      type: 'varchar',
     },
     otp: {
-      type: 'varchar'
-    }
-  }
+      type: 'varchar',
+    },
+  },
 });

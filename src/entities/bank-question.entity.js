@@ -13,6 +13,6 @@ module.exports = new EntitySchema({
     },
     name: {
       type: 'nvarchar',
-    }
-  }
+    },
+  },
 });

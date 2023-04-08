@@ -9,11 +9,11 @@ module.exports = new EntitySchema({
     username: {
       primary: true,
       type: 'varchar',
-      unique: true
+      unique: true,
     },
     password: {
       type: 'varchar',
-      nullable: false
-    }
-  }
+      nullable: false,
+    },
+  },
 });

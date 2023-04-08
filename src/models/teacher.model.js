@@ -1,7 +1,18 @@
 'use strict';
 
 class Teacher {
-  constructor(code, name, sex, dob, address, email, password, phone, image, otp) {
+  constructor(
+    code,
+    name,
+    sex,
+    dob,
+    address,
+    email,
+    password,
+    phone,
+    image,
+    otp
+  ) {
     this._code = code;
     this._name = name;
     this._sex = sex;
@@ -19,7 +30,7 @@ class Teacher {
   }
 
   set code(code) {
-    return this._code = code;
+    return (this._code = code);
   }
 
   get name() {
@@ -27,7 +38,7 @@ class Teacher {
   }
 
   set name(name) {
-    return this._name = name;
+    return (this._name = name);
   }
 
   get sex() {
@@ -35,7 +46,7 @@ class Teacher {
   }
 
   set sex(sex) {
-    return this._sex = sex;
+    return (this._sex = sex);
   }
 
   get dob() {
@@ -43,7 +54,7 @@ class Teacher {
   }
 
   set dob(dob) {
-    return this._dob = dob;
+    return (this._dob = dob);
   }
 
   get address() {
@@ -51,7 +62,7 @@ class Teacher {
   }
 
   set address(address) {
-    return this._address = address;
+    return (this._address = address);
   }
 
   get email() {
@@ -59,7 +70,7 @@ class Teacher {
   }
 
   set email(email) {
-    return this._email = email;
+    return (this._email = email);
   }
 
   get password() {
@@ -67,7 +78,7 @@ class Teacher {
   }
 
   set password(password) {
-    return this._password = password;
+    return (this._password = password);
   }
 
   get phone() {
@@ -75,7 +86,7 @@ class Teacher {
   }
 
   set phone(phone) {
-    return this._phone = phone;
+    return (this._phone = phone);
   }
 
   get image() {
@@ -83,7 +94,7 @@ class Teacher {
   }
 
   set image(image) {
-    return this._image = image;
+    return (this._image = image);
   }
 
   get otp() {
@@ -91,7 +102,7 @@ class Teacher {
   }
 
   set otp(otp) {
-    return this._otp = otp;
+    return (this._otp = otp);
   }
 }
 
