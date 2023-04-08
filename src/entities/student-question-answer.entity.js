@@ -11,12 +11,6 @@ module.exports = new EntitySchema({
       type: 'uuid',
       generated: 'uuid',
     },
-    answer: {
-      type: 'nvarchar'
-    },
-    isCorrect: {
-      type: 'bit'
-    }
   }, relations: {
     studentCode: {
       target: table.STUDENT,
@@ -32,6 +26,15 @@ module.exports = new EntitySchema({
       type: 'many-to-one',
       joinColumn: {
         name: 'idTestQuestion'
+      },
+      joinTable: true,
+      cascade: true
+    },
+    idQuestionAnswer: {
+      target: table.QUESTION_ANSWER,
+      type: 'many-to-one',
+      joinColumn: {
+        name: 'idQuestionAnswer'
       },
       joinTable: true,
       cascade: true
