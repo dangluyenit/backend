@@ -2,7 +2,7 @@
 
 class Teacher {
   constructor(
-    code,
+    teacherCode,
     name,
     sex,
     dob,
@@ -13,7 +13,7 @@ class Teacher {
     image,
     otp
   ) {
-    this._code = code;
+    this._teacherCode = teacherCode;
     this._name = name;
     this._sex = sex;
     this._dob = dob;
@@ -25,12 +25,12 @@ class Teacher {
     this._otp = otp;
   }
 
-  get code() {
-    return this._code;
+  get teacherCode() {
+    return this._teacherCode;
   }
 
-  set code(code) {
-    return (this._code = code);
+  set teacherCode(teacherCode) {
+    return (this._teacherCode = teacherCode);
   }
 
   get name() {

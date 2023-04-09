@@ -6,7 +6,7 @@ module.exports = new EntitySchema({
   tableName: table.TEACHER,
   target: table.TEACHER,
   columns: {
-    code: {
+    teacherCode: {
       primary: true,
       type: 'varchar',
     },
