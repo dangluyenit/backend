@@ -11,16 +11,6 @@ class AuthStudentService {
     const passwordHash = await bcrypt.hash(password, 10);
 
     const studentRepository = dataSource.getRepository(table.STUDENT);
-    const student = await studentRepository.findBy({ email, studentCode });
-    console.log(student);
-    // student is array
-    if (student.length > 0) {
-      throw new ErrorResponse({
-        message: 'Email already exists',
-        statusCode: STATUS_CODE.BAD_REQUEST,
-      });
-    }
-
     try {
       await studentRepository.insert({
         email,
@@ -32,9 +22,14 @@ class AuthStudentService {
 
       return { accessToken, refreshToken };
     } catch (error) {
-      if (error.message.includes('duplicate key')) {
+      if (error.message.includes('PRIMARY KEY')) {
         throw new ErrorResponse({
           message: 'Student code already exists',
+          statusCode: STATUS_CODE.BAD_REQUEST,
+        });
+      } else if (error.message.includes('UNIQUE KEY')) {
+        throw new ErrorResponse({
+          message: 'Email already exists',
           statusCode: STATUS_CODE.BAD_REQUEST,
         });
       }
