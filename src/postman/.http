@@ -1,0 +1,12 @@
+### hostname
+@hostname = http://localhost:4000/api/v1
+
+### API SignUp
+POST {{hostname}}/auth/student/sign-up
+Content-Type: application/json
+
+{
+  "email": "hieu@gmail.com",
+  "password": "123",
+  "code": "1"
+}
