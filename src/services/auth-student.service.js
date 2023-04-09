@@ -7,11 +7,12 @@ const { createToken } = require('./../utils/auth.util');
 const { ErrorResponse } = require('./../helpers/error.response');
 
 class AuthStudentService {
-  static signUp = async ({ email, password, code }) => {
+  static signUp = async ({ email, password, studentCode }) => {
     const passwordHash = await bcrypt.hash(password, 10);
 
     const studentRepository = dataSource.getRepository(table.STUDENT);
-    const student = await studentRepository.findBy({ email });
+    const student = await studentRepository.findBy({ email, studentCode });
+    console.log(student);
     // student is array
     if (student.length > 0) {
       throw new ErrorResponse({
@@ -24,7 +25,7 @@ class AuthStudentService {
       await studentRepository.insert({
         email,
         password: passwordHash,
-        code,
+        studentCode,
       });
 
       const { accessToken, refreshToken } = await createToken({ email });
