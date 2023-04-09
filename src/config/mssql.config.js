@@ -42,4 +42,4 @@ dataSource
     console.error('Unable to connect to the database: ', error)
   );
 
-module.exports = dataSource;
+module.exports = { dataSource };
