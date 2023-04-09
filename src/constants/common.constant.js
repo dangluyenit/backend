@@ -15,6 +15,7 @@ const table = {
   STUDENT_QUESTION_ANSWER: 'StudentQuestionAnswer',
   QUESTION_ANSWER: 'QuestionAnswer',
   SCORE: 'Score',
+  TOKEN: 'Token',
 };
 
 const API_PREFIX = '/api/v1';
