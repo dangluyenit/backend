@@ -10,13 +10,13 @@ const AuthService = require('./../services/auth-student.service');
 
 class AuthStudentController {
   async signUp(req, res) {
-    const { email, password, code } = req.body;
+    const { email, password, studentCode } = req.body;
 
     try {
       const { accessToken, refreshToken } = await AuthService.signUp({
         email,
         password,
-        code,
+        studentCode,
       });
 
       return new SuccessResponse({

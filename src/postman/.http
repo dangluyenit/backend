@@ -8,7 +8,7 @@ Content-Type: application/json
 {
   "email": "hieu@gmail.com",
   "password": "123",
-  "code": "1"
+  "studentCode": "1"
 }
 
 ### API SignIn
