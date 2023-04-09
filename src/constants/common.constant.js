@@ -17,4 +17,26 @@ const table = {
   SCORE: 'Score',
 };
 
-module.exports = { table };
+const API_PREFIX = '/api/v1';
+
+const STATUS_CODE = {
+  OK: 200,
+  CREATED: 201,
+  BAD_REQUEST: 400,
+  UNAUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  INTERNAL_SERVER_ERROR: 500,
+};
+
+const REASON_STATUS_CODE = {
+  OK: 'OK',
+  CREATED: 'Created',
+  BAD_REQUEST: 'Bad Request',
+  UNAUTHORIZED: 'Unauthorized',
+  FORBIDDEN: 'Forbidden',
+  NOT_FOUND: 'Not Found',
+  INTERNAL_SERVER_ERROR: 'Internal Server Error',
+};
+
+module.exports = { table, API_PREFIX, STATUS_CODE, REASON_STATUS_CODE };
