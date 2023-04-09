@@ -13,7 +13,7 @@ class AuthStudentController {
     const { email, password, code } = req.body;
 
     try {
-      const { student, accessToken, refreshToken } = await AuthService.signUp({
+      const { accessToken, refreshToken } = await AuthService.signUp({
         email,
         password,
         code,
@@ -23,7 +23,7 @@ class AuthStudentController {
         message: 'Created account student successfully',
         statusCode: STATUS_CODE.CREATED,
         reasonStatusCode: REASON_STATUS_CODE.CREATED,
-        metadata: { student, accessToken, refreshToken },
+        metadata: { accessToken, refreshToken },
       }).send(res);
     } catch (error) {
       return new ErrorResponse({
