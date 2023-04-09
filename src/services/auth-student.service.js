@@ -40,6 +40,35 @@ class AuthStudentService {
       throw new Error(error);
     }
   };
+
+  static signIn = async ({ email, password }) => {
+    const studentRepository = dataSource.getRepository(table.STUDENT);
+    const student = await studentRepository.findOneBy({ email });
+
+    if (!student) {
+      throw new ErrorResponse({
+        message: 'Email or password is incorrect',
+        statusCode: STATUS_CODE.BAD_REQUEST,
+      });
+    }
+
+    const match = await bcrypt.compare(password, student.password);
+
+    if (!match) {
+      throw new ErrorResponse({
+        message: 'Email or password is incorrect',
+        statusCode: STATUS_CODE.BAD_REQUEST,
+      });
+    }
+
+    try {
+      const { accessToken, refreshToken } = await createToken({ email });
+
+      return { accessToken, refreshToken };
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
 }
 
 module.exports = AuthStudentService;

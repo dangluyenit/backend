@@ -10,3 +10,12 @@ Content-Type: application/json
   "password": "123",
   "code": "1"
 }
+
+### API SignIn
+POST {{hostname}}/auth/student/sign-in
+Content-Type: application/json
+
+{
+  "email": "hieu@gmail.com",
+  "password": "123"
+}

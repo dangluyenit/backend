@@ -32,6 +32,27 @@ class AuthStudentController {
       }).send(res);
     }
   }
+
+  async signIn(req, res) {
+    const { email, password } = req.body;
+
+    try {
+      const { accessToken, refreshToken } = await AuthService.signIn({
+        email,
+        password,
+      });
+
+      return new SuccessResponse({
+        message: 'Sign in successfully',
+        metadata: { accessToken, refreshToken },
+      }).send(res);
+    } catch (error) {
+      return new ErrorResponse({
+        message: error.message,
+        statusCode: error.statusCode || STATUS_CODE.INTERNAL_SERVER_ERROR,
+      }).send(res);
+    }
+  }
 }
 
 module.exports = new AuthStudentController();
