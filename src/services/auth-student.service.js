@@ -18,7 +18,10 @@ class AuthStudentService {
         studentCode,
       });
 
-      const { accessToken, refreshToken } = await createToken({ email });
+      const { accessToken, refreshToken } = await createToken({
+        email,
+        studentCode,
+      });
 
       const tokenRepository = dataSource.getRepository(table.TOKEN);
       await tokenRepository.insert({
@@ -64,7 +67,10 @@ class AuthStudentService {
     }
 
     try {
-      const { accessToken, refreshToken } = await createToken({ email });
+      const { accessToken, refreshToken } = await createToken({
+        email,
+        studentCode: student.studentCode,
+      });
 
       const tokenRepository = dataSource.getRepository(table.TOKEN);
       await tokenRepository.insert({
