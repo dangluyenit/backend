@@ -120,12 +120,14 @@ class AuthStudentService {
     }
 
     const tokenRepository = dataSource.getRepository(table.TOKEN);
+    // get list refresh token by student code
     const listRefreshToken = await tokenRepository.find({
       where: {
         studentCode: decoded.payload.studentCode,
       },
     });
 
+    // check refresh token it is valid or not, it valid when refresh token is exist in database
     let refreshTokenExist = false;
 
     listRefreshToken.forEach((refreshToken) => {
@@ -135,10 +137,12 @@ class AuthStudentService {
     });
 
     if (refreshTokenExist) {
+      // remove old refresh token
       await tokenRepository.delete({ refreshToken: _refreshToken });
 
       const { accessToken, refreshToken } = await createToken(decoded.payload);
 
+      // insert new refresh token
       await tokenRepository.insert({
         refreshToken,
         studentCode: decoded.payload.studentCode,
