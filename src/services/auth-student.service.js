@@ -20,6 +20,12 @@ class AuthStudentService {
 
       const { accessToken, refreshToken } = await createToken({ email });
 
+      const tokenRepository = dataSource.getRepository(table.TOKEN);
+      await tokenRepository.insert({
+        refreshToken,
+        studentCode,
+      });
+
       return { accessToken, refreshToken };
     } catch (error) {
       if (error.message.includes('PRIMARY KEY')) {
@@ -59,6 +65,12 @@ class AuthStudentService {
 
     try {
       const { accessToken, refreshToken } = await createToken({ email });
+
+      const tokenRepository = dataSource.getRepository(table.TOKEN);
+      await tokenRepository.insert({
+        refreshToken,
+        studentCode: student.studentCode,
+      });
 
       return { accessToken, refreshToken };
     } catch (error) {
