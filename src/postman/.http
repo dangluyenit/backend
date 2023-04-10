@@ -1,8 +1,10 @@
 ### hostname
 @hostname = http://localhost:4000/api/v1
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImVtYWlsIjoiaGlldUBnbWFpbC5jb20iLCJzdHVkZW50Q29kZSI6IjEiLCJyb2xlIjoiU1RVREVOVCJ9LCJpYXQiOjE2ODExMzM3NTYsImV4cCI6MTY4MTEzNDM1Nn0.Iz3xLqUWmbJVj8dmg9h4enJzjB92wpRiydGkpEO2hIw
-@refresh-token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImVtYWlsIjoiaGlldUBnbWFpbC5jb20iLCJzdHVkZW50Q29kZSI6IjEiLCJyb2xlIjoiU1RVREVOVCJ9LCJpYXQiOjE2ODExMzM3NTYsImV4cCI6MTY4MTczODU1Nn0.qCU0MR2cm-8gC_fj1JHGFkj8jqKD0kT_c4A1kkrvfsE
+@token = {{studentAuth.response.body.$.metadata.accessToken}}
+@refresh-token = {{studentAuth.response.body.$.metadata.refreshToken}}
+
 ### API SignUp
+# @name studentAuth
 POST {{hostname}}/auth/student/sign-up
 Content-Type: application/json
 
@@ -13,6 +15,7 @@ Content-Type: application/json
 }
 
 ### API SignIn
+# @name studentAuth
 POST {{hostname}}/auth/student/sign-in
 Content-Type: application/json
 
@@ -22,6 +25,7 @@ Content-Type: application/json
 }
 
 ### API Refresh Token
+# @name studentAuth
 GET {{hostname}}/auth/student/refresh-token
 Content-Type: application/json
 Authorization: {{token}}
