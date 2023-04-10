@@ -45,4 +45,17 @@ const HEADER = {
   REFRESH_TOKEN: 'x-rtoken-id',
 };
 
-module.exports = { table, API_PREFIX, STATUS_CODE, REASON_STATUS_CODE, HEADER };
+const ROLE = {
+  ADMIN: 'ADMIN',
+  TEACHER: 'TEACHER',
+  STUDENT: 'STUDENT',
+};
+
+module.exports = {
+  table,
+  API_PREFIX,
+  STATUS_CODE,
+  REASON_STATUS_CODE,
+  HEADER,
+  ROLE,
+};

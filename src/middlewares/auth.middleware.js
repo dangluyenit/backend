@@ -28,4 +28,19 @@ const authentication = (req, res, next) => {
   next();
 };
 
-module.exports = { authentication };
+const checkPermission = ({ role }) => {
+  return (req, res, next) => {
+    const user = req.user;
+
+    if (user.role !== role) {
+      throw new ErrorResponse({
+        message: 'permission denied',
+        statusCode: STATUS_CODE.FORBIDDEN,
+      }).send(res);
+    }
+
+    next();
+  };
+};
+
+module.exports = { authentication, checkPermission };
