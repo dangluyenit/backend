@@ -25,6 +25,7 @@ const dataSource = new DataSource({
     require('./../entities/teacher.entity'),
     require('./../entities/test-question.entity'),
     require('./../entities/test.entity'),
+    require('./../entities/token.entity'),
   ],
   extra: {
     options: {
