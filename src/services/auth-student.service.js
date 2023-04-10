@@ -21,6 +21,7 @@ class AuthStudentService {
       const { accessToken, refreshToken } = await createToken({
         email,
         studentCode,
+        role: 'STUDENT',
       });
 
       const tokenRepository = dataSource.getRepository(table.TOKEN);
@@ -70,6 +71,7 @@ class AuthStudentService {
       const { accessToken, refreshToken } = await createToken({
         email,
         studentCode: student.studentCode,
+        role: 'STUDENT',
       });
 
       const tokenRepository = dataSource.getRepository(table.TOKEN);
