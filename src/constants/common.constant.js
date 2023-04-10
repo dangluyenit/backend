@@ -40,4 +40,9 @@ const REASON_STATUS_CODE = {
   INTERNAL_SERVER_ERROR: 'Internal Server Error',
 };
 
-module.exports = { table, API_PREFIX, STATUS_CODE, REASON_STATUS_CODE };
+const HEADER = {
+  AUTHORIZATION: 'authorization',
+  REFRESH_TOKEN: 'x-rtoken-id',
+};
+
+module.exports = { table, API_PREFIX, STATUS_CODE, REASON_STATUS_CODE, HEADER };
