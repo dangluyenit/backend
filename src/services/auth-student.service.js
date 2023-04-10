@@ -2,11 +2,7 @@
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const {
-  table,
-  STATUS_CODE,
-  HEADER,
-} = require('./../constants/common.constant');
+const { table, STATUS_CODE } = require('./../constants/common.constant');
 const { dataSource } = require('./../config/mssql.config');
 const { createToken } = require('./../utils/auth.util');
 const { ErrorResponse } = require('./../helpers/error.response');
