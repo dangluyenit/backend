@@ -1,7 +1,12 @@
 'use strict';
 
 const bcrypt = require('bcrypt');
-const { table, STATUS_CODE } = require('./../constants/common.constant');
+const jwt = require('jsonwebtoken');
+const {
+  table,
+  STATUS_CODE,
+  HEADER,
+} = require('./../constants/common.constant');
 const { dataSource } = require('./../config/mssql.config');
 const { createToken } = require('./../utils/auth.util');
 const { ErrorResponse } = require('./../helpers/error.response');
@@ -83,6 +88,68 @@ class AuthStudentService {
       return { accessToken, refreshToken };
     } catch (error) {
       throw new Error(error);
+    }
+  };
+
+  static handleRefreshToken = async ({ _refreshToken, _accessToken }) => {
+    jwt.verify(_accessToken, process.env.JWT_SECRET_KEY, (error, _) => {
+      if (error && error.message !== 'jwt expired') {
+        throw new ErrorResponse({
+          message: 'unauthorized',
+          statusCode: STATUS_CODE.UNAUTHORIZED,
+        });
+      }
+    });
+
+    if (!_refreshToken) {
+      throw new ErrorResponse({
+        message: 'unauthorized',
+        statusCode: STATUS_CODE.UNAUTHORIZED,
+      });
+    }
+
+    let decoded = null;
+
+    try {
+      decoded = jwt.verify(_refreshToken, process.env.JWT_PRIVATE_KEY);
+    } catch (error) {
+      throw new ErrorResponse({
+        message: 'unauthorized',
+        statusCode: STATUS_CODE.UNAUTHORIZED,
+      });
+    }
+
+    const tokenRepository = dataSource.getRepository(table.TOKEN);
+    const listRefreshToken = await tokenRepository.find({
+      where: {
+        studentCode: decoded.payload.studentCode,
+      },
+    });
+
+    let refreshTokenExist = false;
+
+    listRefreshToken.forEach((refreshToken) => {
+      if (refreshToken.refreshToken === _refreshToken) {
+        return (refreshTokenExist = true);
+      }
+    });
+
+    if (refreshTokenExist) {
+      await tokenRepository.delete({ refreshToken: _refreshToken });
+
+      const { accessToken, refreshToken } = await createToken(decoded.payload);
+
+      await tokenRepository.insert({
+        refreshToken,
+        studentCode: decoded.payload.studentCode,
+      });
+
+      return { accessToken, refreshToken };
+    } else {
+      throw new ErrorResponse({
+        message: 'unauthorized',
+        statusCode: STATUS_CODE.UNAUTHORIZED,
+      });
     }
   };
 }
