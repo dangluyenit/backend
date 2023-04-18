@@ -2,7 +2,7 @@
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { table, STATUS_CODE, ROLE } = require('../constants/common.constant');
+const { TABLE, STATUS_CODE, ROLE } = require('../constants/common.constant');
 const { dataSource } = require('../config/mssql.config');
 const { createToken } = require('../utils/auth.util');
 const { ErrorResponse } = require('../helpers/error.response');
@@ -11,7 +11,7 @@ class AuthTeacherService {
   static signUp = async ({ email, password, teacherCode }) => {
     const passwordHash = await bcrypt.hash(password, 10);
 
-    const teacherRepository = dataSource.getRepository(table.TEACHER);
+    const teacherRepository = dataSource.getRepository(TABLE.TEACHER);
     try {
       await teacherRepository.insert({
         email,
@@ -25,7 +25,7 @@ class AuthTeacherService {
         role: ROLE.TEACHER,
       });
 
-      const tokenRepository = dataSource.getRepository(table.TOKEN);
+      const tokenRepository = dataSource.getRepository(TABLE.TOKEN);
       await tokenRepository.insert({
         refreshToken,
         teacherCode,
@@ -49,7 +49,7 @@ class AuthTeacherService {
   };
 
   static signIn = async ({ email, password }) => {
-    const teacherRepository = dataSource.getRepository(table.TEACHER);
+    const teacherRepository = dataSource.getRepository(TABLE.TEACHER);
     const teacher = await teacherRepository.findOneBy({ email });
 
     if (!teacher) {
@@ -75,7 +75,7 @@ class AuthTeacherService {
         role: ROLE.TEACHER,
       });
 
-      const tokenRepository = dataSource.getRepository(table.TOKEN);
+      const tokenRepository = dataSource.getRepository(TABLE.TOKEN);
       await tokenRepository.insert({
         refreshToken,
         teacherCode: teacher.teacherCode,
@@ -115,7 +115,7 @@ class AuthTeacherService {
       });
     }
 
-    const tokenRepository = dataSource.getRepository(table.TOKEN);
+    const tokenRepository = dataSource.getRepository(TABLE.TOKEN);
     // get list refresh token by teacher code
     const listRefreshToken = await tokenRepository.find({
       where: {

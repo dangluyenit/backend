@@ -1,10 +1,10 @@
 const { EntitySchema } = require('typeorm');
-const { table } = require('./../constants/common.constant');
+const { TABLE } = require('./../constants/common.constant');
 
 module.exports = new EntitySchema({
-  name: table.TEST_QUESTION,
-  tableName: table.TEST_QUESTION,
-  target: table.TEST_QUESTION,
+  name: TABLE.TEST_QUESTION,
+  tableName: TABLE.TEST_QUESTION,
+  target: TABLE.TEST_QUESTION,
   columns: {
     id: {
       primary: true,
@@ -14,7 +14,7 @@ module.exports = new EntitySchema({
   },
   relations: {
     studentCode: {
-      target: table.STUDENT,
+      target: TABLE.STUDENT,
       type: 'many-to-one',
       joinColumn: {
         name: 'studentCode',
@@ -23,7 +23,7 @@ module.exports = new EntitySchema({
       cascade: true,
     },
     idTest: {
-      target: table.TEST,
+      target: TABLE.TEST,
       type: 'many-to-one',
       joinColumn: {
         name: 'idTest',
@@ -32,7 +32,7 @@ module.exports = new EntitySchema({
       cascade: true,
     },
     idQuestion: {
-      target: table.QUESTION,
+      target: TABLE.QUESTION,
       type: 'many-to-one',
       joinColumn: {
         name: 'idQuestion',

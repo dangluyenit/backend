@@ -2,7 +2,7 @@
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { table, STATUS_CODE, ROLE } = require('./../constants/common.constant');
+const { TABLE, STATUS_CODE, ROLE } = require('./../constants/common.constant');
 const { dataSource } = require('./../config/mssql.config');
 const { createToken } = require('./../utils/auth.util');
 const { ErrorResponse } = require('./../helpers/error.response');
@@ -11,7 +11,7 @@ class AuthStudentService {
   static signUp = async ({ email, password, studentCode }) => {
     const passwordHash = await bcrypt.hash(password, 10);
 
-    const studentRepository = dataSource.getRepository(table.STUDENT);
+    const studentRepository = dataSource.getRepository(TABLE.STUDENT);
     try {
       await studentRepository.insert({
         email,
@@ -25,7 +25,7 @@ class AuthStudentService {
         role: ROLE.STUDENT,
       });
 
-      const tokenRepository = dataSource.getRepository(table.TOKEN);
+      const tokenRepository = dataSource.getRepository(TABLE.TOKEN);
       await tokenRepository.insert({
         refreshToken,
         studentCode,
@@ -49,7 +49,7 @@ class AuthStudentService {
   };
 
   static signIn = async ({ email, password }) => {
-    const studentRepository = dataSource.getRepository(table.STUDENT);
+    const studentRepository = dataSource.getRepository(TABLE.STUDENT);
     const student = await studentRepository.findOneBy({ email });
 
     if (!student) {
@@ -75,7 +75,7 @@ class AuthStudentService {
         role: ROLE.STUDENT,
       });
 
-      const tokenRepository = dataSource.getRepository(table.TOKEN);
+      const tokenRepository = dataSource.getRepository(TABLE.TOKEN);
       await tokenRepository.insert({
         refreshToken,
         studentCode: student.studentCode,
@@ -115,7 +115,7 @@ class AuthStudentService {
       });
     }
 
-    const tokenRepository = dataSource.getRepository(table.TOKEN);
+    const tokenRepository = dataSource.getRepository(TABLE.TOKEN);
     // get list refresh token by student code
     const listRefreshToken = await tokenRepository.find({
       where: {

@@ -1,7 +1,7 @@
 'use strict';
 
 // name of table in database
-const table = {
+const TABLE = {
   ADMIN: 'Admin',
   LESSON: 'Lesson',
   COURSE: 'Course',
@@ -52,7 +52,7 @@ const ROLE = {
 };
 
 module.exports = {
-  table,
+  TABLE,
   API_PREFIX,
   STATUS_CODE,
   REASON_STATUS_CODE,

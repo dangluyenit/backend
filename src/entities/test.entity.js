@@ -1,10 +1,10 @@
 const { EntitySchema } = require('typeorm');
-const { table } = require('./../constants/common.constant');
+const { TABLE } = require('./../constants/common.constant');
 
 module.exports = new EntitySchema({
-  name: table.TEST,
-  tableName: table.TEST,
-  target: table.TEST,
+  name: TABLE.TEST,
+  tableName: TABLE.TEST,
+  target: TABLE.TEST,
   columns: {
     id: {
       primary: true,
@@ -23,7 +23,7 @@ module.exports = new EntitySchema({
   },
   relations: {
     teacherCode: {
-      target: table.TEACHER,
+      target: TABLE.TEACHER,
       type: 'many-to-one',
       joinColumn: {
         name: 'teacherCode',
