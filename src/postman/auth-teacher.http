@@ -1,0 +1,32 @@
+### hostname
+@hostname = http://localhost:4000/api/v1
+@token = {{auth.response.body.$.metadata.accessToken}}
+@refresh-token = {{auth.response.body.$.metadata.refreshToken}}
+
+### API SignUp
+# @name auth
+POST {{hostname}}/auth/teacher/sign-up
+Content-Type: application/json
+
+{
+  "email": "hieu@gmail.com",
+  "password": "123",
+  "teacherCode": "1"
+}
+
+### API SignIn
+# @name auth
+POST {{hostname}}/auth/teacher/sign-in
+Content-Type: application/json
+
+{
+  "email": "hieu@gmail.com",
+  "password": "123"
+}
+
+### API Refresh Token
+# @name auth
+GET {{hostname}}/auth/teacher/refresh-token
+Content-Type: application/json
+Authorization: {{token}}
+x-rtoken-id: {{refresh-token}}
