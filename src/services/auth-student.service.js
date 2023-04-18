@@ -2,7 +2,7 @@
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { table, STATUS_CODE } = require('./../constants/common.constant');
+const { table, STATUS_CODE, ROLE } = require('./../constants/common.constant');
 const { dataSource } = require('./../config/mssql.config');
 const { createToken } = require('./../utils/auth.util');
 const { ErrorResponse } = require('./../helpers/error.response');
@@ -22,7 +22,7 @@ class AuthStudentService {
       const { accessToken, refreshToken } = await createToken({
         email,
         studentCode,
-        role: 'STUDENT',
+        role: ROLE.STUDENT,
       });
 
       const tokenRepository = dataSource.getRepository(table.TOKEN);
@@ -72,7 +72,7 @@ class AuthStudentService {
       const { accessToken, refreshToken } = await createToken({
         email,
         studentCode: student.studentCode,
-        role: 'STUDENT',
+        role: ROLE.STUDENT,
       });
 
       const tokenRepository = dataSource.getRepository(table.TOKEN);
