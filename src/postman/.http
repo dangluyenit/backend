@@ -1,7 +1,9 @@
 ### hostname
 @hostname = http://localhost:4000/api/v1
-@token = {{studentAuth.response.body.$.metadata.accessToken}}
-@refresh-token = {{studentAuth.response.body.$.metadata.refreshToken}}
+@token-student = {{studentAuth.response.body.$.metadata.accessToken}}
+@refresh-token-student = {{studentAuth.response.body.$.metadata.refreshToken}}
+@token-teacher = {{teacherAuth.response.body.$.metadata.accessToken}}
+@refresh-token-teacher = {{teacherAuth.response.body.$.metadata.refreshToken}}
 
 ### API SignUp
 # @name studentAuth
@@ -28,5 +30,33 @@ Content-Type: application/json
 # @name studentAuth
 GET {{hostname}}/auth/student/refresh-token
 Content-Type: application/json
-Authorization: {{token}}
-x-rtoken-id: {{refresh-token}}
+Authorization: {{token-student}}
+x-rtoken-id: {{refresh-token-student}}
+
+### API SignUp
+# @name teacherAuth
+POST {{hostname}}/auth/teacher/sign-up
+Content-Type: application/json
+
+{
+  "email": "hieu@gmail.com",
+  "password": "123",
+  "teacherCode": "1"
+}
+
+### API SignIn
+# @name teacherAuth
+POST {{hostname}}/auth/teacher/sign-in
+Content-Type: application/json
+
+{
+  "email": "hieu@gmail.com",
+  "password": "123"
+}
+
+### API Refresh Token
+# @name teacherAuth
+GET {{hostname}}/auth/teacher/refresh-token
+Content-Type: application/json
+Authorization: {{token-teacher}}
+x-rtoken-id: {{refresh-token-teacher}}
