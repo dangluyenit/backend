@@ -9,7 +9,8 @@
     "start": "node server.js",
     "format": "prettier --write .",
     "prettier": "prettier",
-    "check-format": "prettier --check ."
+    "check-format": "prettier --check .",
+    "lint": "eslint --ext .js --ignore-path .gitignore ."
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,8 @@
   },
   "devDependencies": {
     "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.7"
   }

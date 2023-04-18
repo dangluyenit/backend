@@ -6,10 +6,11 @@ module.exports = {
   },
   extends: ['prettier'],
   overrides: [],
-  plugin: ['prettier'],
   parserOptions: {
     ecmaVersion: 'latest',
+    sourceType: 'module',
   },
+  plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error'],
   },
