@@ -28,18 +28,19 @@ const authentication = (req, res, next) => {
   next();
 };
 
-const checkPermission = ({ role }) => {
+const checkPermission = (...role) => {
   return (req, res, next) => {
+    const listRole = [...role];
     const user = req.user;
 
-    if (user.role !== role) {
+    if (listRole.includes(user.role)) {
+      next();
+    } else {
       throw new ErrorResponse({
         message: 'permission denied',
         statusCode: STATUS_CODE.FORBIDDEN,
       }).send(res);
     }
-
-    next();
   };
 };
 
