@@ -7,3 +7,5 @@ class JoinCourse {
     this.studentCode = studentCode;
   }
 }
+
+module.exports = { JoinCourse };

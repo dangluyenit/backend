@@ -9,3 +9,5 @@ class Test {
     this.teacherCode = teacherCode;
   }
 }
+
+module.exports = { Test };

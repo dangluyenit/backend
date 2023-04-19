@@ -9,3 +9,5 @@ class Score {
     this.studentCode = studentCode;
   }
 }
+
+module.exports = { Score };

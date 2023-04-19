@@ -8,3 +8,5 @@ class Token {
     this.teacherCode = teacherCode;
   }
 }
+
+module.exports = { Token };

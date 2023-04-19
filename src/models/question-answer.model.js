@@ -8,3 +8,5 @@ class QuestionAnswer {
     this.idQuestion = idQuestion;
   }
 }
+
+module.exports = { QuestionAnswer };

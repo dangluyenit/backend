@@ -8,3 +8,5 @@ class TestQuestion {
     this.idQuestion = idQuestion;
   }
 }
+
+module.exports = { TestQuestion };

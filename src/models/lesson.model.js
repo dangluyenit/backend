@@ -10,3 +10,5 @@ class Lesson {
     this.idCourse = idCourse;
   }
 }
+
+module.exports = { Lesson };

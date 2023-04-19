@@ -9,3 +9,5 @@ class StudentQuestionAnswer {
     this.idTestQuestion = idTestQuestion;
   }
 }
+
+module.exports = { StudentQuestionAnswer };

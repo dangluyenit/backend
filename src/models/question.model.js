@@ -7,3 +7,5 @@ class Question {
     this.idBankQuestion = idBankQuestion;
   }
 }
+
+module.exports = { Question };
