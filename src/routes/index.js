@@ -1,8 +1,7 @@
 'use strict';
 
-const express = require('express');
+const router = require('express').Router();
 const { API_PREFIX } = require('./../constants/common.constant');
-const router = express.Router();
 
 router.get('/', (req, res) => {
   res.status(200).json({
