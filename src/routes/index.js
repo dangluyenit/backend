@@ -28,5 +28,6 @@ router.use(
   checkPermission(ROLE.ADMIN),
   require('./bank-question.route')
 );
+router.use(API_PREFIX + '/questions', require('./question.route'));
 
 module.exports = router;
