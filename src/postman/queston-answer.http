@@ -1,0 +1,33 @@
+### hostname
+@hostname = http://localhost:4000/api/v1
+@token = {{auth.response.body.$.metadata.accessToken}}
+
+### API SignIn Admin
+# @name auth
+POST {{hostname}}/auth/admin/sign-in
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "123"
+}
+
+### API SignIn Teacher
+# @name auth
+POST {{hostname}}/auth/teacher/sign-in
+Content-Type: application/json
+
+{
+  "email": "hieu@gmail.com",
+  "password": "123"
+}
+
+### API create a question answer
+POST {{hostname}}/question-answers
+Content-Type: application/json
+
+{
+  "idQuestion": "537c959f-f0c3-44b6-8114-8cac49c691d8",
+  "answer": "sada",
+  "isCorrect": true
+}
