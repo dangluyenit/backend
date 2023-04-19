@@ -25,7 +25,7 @@ router.use(API_PREFIX + '/auth/admin', require('./auth-admin.route'));
 router.use(
   API_PREFIX + '/bank-questions',
   authentication,
-  checkPermission(ROLE.ADMIN),
+  checkPermission(ROLE.ADMIN, ROLE.TEACHER),
   require('./bank-question.route')
 );
 router.use(API_PREFIX + '/questions', require('./question.route'));
