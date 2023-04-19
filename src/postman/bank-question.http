@@ -1,0 +1,21 @@
+@hostname = http://localhost:4000/api/v1
+@token = {{auth.response.body.$.metadata.accessToken}}
+
+### API SignIn
+# @name auth
+POST {{hostname}}/auth/admin/sign-in
+Content-Type: application/json
+
+{
+  "email": "hieu",
+  "password": "123"
+}
+
+### API Create a bank question
+POST {{hostname}}/bank-questions
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "name": "test1"
+}
