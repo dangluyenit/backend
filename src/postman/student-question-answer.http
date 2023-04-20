@@ -1,8 +1,8 @@
 ### hostname
 @hostname = http://localhost:4000/api/v1
 
-### API create a question answer
-POST {{hostname}}/question-answers
+### API create a student question answers
+POST {{hostname}}/student-question-answers
 Content-Type: application/json
 
 {
