@@ -5,8 +5,7 @@ const {
   REASON_STATUS_CODE,
   HEADER,
 } = require('../constants/common.constant');
-const { SuccessResponse } = require('../helpers/success.response');
-const { ErrorResponse } = require('../helpers/error.response');
+const { ErrorResponse, SuccessResponse } = require('../helpers');
 const AuthService = require('../services/auth-admin.service');
 
 class AuthAdminController {

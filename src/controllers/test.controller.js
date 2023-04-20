@@ -1,8 +1,7 @@
 'use strict';
 
 const TestService = require('../services/test.service');
-const { SuccessResponse } = require('../helpers/success.response');
-const { ErrorResponse } = require('../helpers/error.response');
+const { ErrorResponse, SuccessResponse } = require('../helpers');
 const { STATUS_CODE } = require('../constants/common.constant');
 
 class TestController {

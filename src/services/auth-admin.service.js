@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const { TABLE, STATUS_CODE, ROLE } = require('../constants/common.constant');
 const { dataSource } = require('../config/mssql.config');
 const { createToken } = require('../utils/auth.util');
-const { ErrorResponse } = require('../helpers/error.response');
+const { ErrorResponse } = require('../helpers');
 
 class AuthAdminService {
   static signUp = async ({ username, password }) => {

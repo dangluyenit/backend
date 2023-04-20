@@ -1,7 +1,6 @@
 'use strict';
 
-const { SuccessResponse } = require('../helpers/success.response');
-const { ErrorResponse } = require('../helpers/error.response');
+const { ErrorResponse, SuccessResponse } = require('../helpers');
 const { STATUS_CODE } = require('../constants/common.constant');
 const questionAnswerService = require('../services/question-answer.service');
 

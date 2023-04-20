@@ -2,7 +2,7 @@
 
 const jwt = require('jsonwebtoken');
 const { HEADER, STATUS_CODE } = require('./../constants/common.constant');
-const { ErrorResponse } = require('./../helpers/error.response');
+const { ErrorResponse } = require('../helpers');
 
 const authentication = (req, res, next) => {
   const token = req.headers[HEADER.AUTHORIZATION];

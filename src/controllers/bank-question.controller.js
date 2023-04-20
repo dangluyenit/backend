@@ -1,8 +1,7 @@
 'use strict';
 
 const { STATUS_CODE } = require('../constants/common.constant');
-const { ErrorResponse } = require('../helpers/error.response');
-const { SuccessResponse } = require('../helpers/success.response');
+const { ErrorResponse, SuccessResponse } = require('../helpers');
 const bankQuestionService = require('../services/bank-question.service');
 
 class BankQuestionController {
