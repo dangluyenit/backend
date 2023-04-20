@@ -1,0 +1,11 @@
+### hostname
+@hostname = http://localhost:4000/api/v1
+
+### API create a join course
+POST {{hostname}}/join-courses
+Content-Type: application/json
+
+{
+  "idCourse": "2ef18a48-bbcb-46cf-8109-bd08e6309e3d",
+  "studentCode": "1"
+}

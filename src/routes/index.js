@@ -42,5 +42,6 @@ router.use(API_PREFIX + '/tests', require('./test.route'));
 router.use(API_PREFIX + '/scores', require('./score.route'));
 router.use(API_PREFIX + '/lessons', require('./lesson.route'));
 router.use(API_PREFIX + '/courses', require('./course.route'));
+router.use(API_PREFIX + '/join-courses', require('./join-course.route'));
 
 module.exports = router;
