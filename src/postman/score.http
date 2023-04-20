@@ -1,0 +1,12 @@
+### hostname
+@hostname = http://localhost:4000/api/v1
+
+### API create a score
+POST {{hostname}}/scores
+Content-Type: application/json
+
+{
+  "idTest": "24914a85-9629-4084-922f-ba051d832c8d",
+  "studentCode": "1",
+  "score":9
+}
