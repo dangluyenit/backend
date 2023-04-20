@@ -28,11 +28,11 @@ module.exports = new EntitySchema({
       joinTable: true,
       cascade: true,
     },
-    studentScore: {
+    studentCode: {
       target: TABLE.STUDENT,
       type: 'many-to-one',
       joinColumn: {
-        name: 'studentScore',
+        name: 'studentCode',
       },
       joinTable: true,
       cascade: true,
