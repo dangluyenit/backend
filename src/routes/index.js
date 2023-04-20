@@ -37,5 +37,6 @@ router.use(
   API_PREFIX + '/student-question-answers',
   require('./student-question-answer.route')
 );
+router.use(API_PREFIX + '/test-questions', require('./test-question.route'));
 
 module.exports = router;
