@@ -1,0 +1,12 @@
+### hostname
+@hostname = http://localhost:4000/api/v1
+
+### API create a test
+POST {{hostname}}/tests
+Content-Type: application/json
+
+{
+  "name": "test1",
+  "teacherCode": "1",
+  "quantityQuestion":12
+}
