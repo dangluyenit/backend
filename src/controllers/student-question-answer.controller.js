@@ -3,6 +3,7 @@
 const { SuccessResponse } = require('../helpers/success.response');
 const { ErrorResponse } = require('../helpers/error.response');
 const { STATUS_CODE } = require('../constants/common.constant');
+const StudentQuestionAnswerService = require('../services/student-question-answer.service');
 
 class StudentQuestionAnswerController {
   async create(req, res) {
@@ -12,7 +13,7 @@ class StudentQuestionAnswerController {
       return new SuccessResponse({
         message: 'Created student question answer successfully',
         statusCode: STATUS_CODE.CREATED,
-        metadata: await studentQuestionAnswerService.create({
+        metadata: await StudentQuestionAnswerService.create({
           studentCode,
           idTestQuestion,
           idQuestionAnswer,
