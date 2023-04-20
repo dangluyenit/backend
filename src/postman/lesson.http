@@ -1,0 +1,14 @@
+### hostname
+@hostname = http://localhost:4000/api/v1
+
+### API create a lesson
+POST {{hostname}}/lessons
+Content-Type: application/json
+
+{
+  "name": "test1",
+  "content": "test1",
+  "image":"",
+  "video":"",
+  "idCourse":"9f7376e0-14d0-44b7-a96d-02fef3722291"
+}
