@@ -1,0 +1,30 @@
+'use strict';
+
+const { SuccessResponse } = require('../helpers/success.response');
+const { ErrorResponse } = require('../helpers/error.response');
+const { STATUS_CODE } = require('../constants/common.constant');
+
+class StudentQuestionAnswerController {
+  async create(req, res) {
+    const { studentCode, idTestQuestion, idQuestionAnswer } = req.body;
+
+    try {
+      return new SuccessResponse({
+        message: 'Created student question answer successfully',
+        statusCode: STATUS_CODE.CREATED,
+        metadata: await studentQuestionAnswerService.create({
+          studentCode,
+          idTestQuestion,
+          idQuestionAnswer,
+        }),
+      }).send(res);
+    } catch (error) {
+      return new ErrorResponse({
+        message: error.message,
+        statusCode: STATUS_CODE.INTERNAL_SERVER_ERROR,
+      }).send(res);
+    }
+  }
+}
+
+module.exports = new StudentQuestionAnswerController();
