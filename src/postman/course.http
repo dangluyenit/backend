@@ -1,0 +1,11 @@
+### hostname
+@hostname = http://localhost:4000/api/v1
+
+### API create a course
+POST {{hostname}}/courses
+Content-Type: application/json
+
+{
+  "name": "test1",
+  "teacherCode": "1"
+}
