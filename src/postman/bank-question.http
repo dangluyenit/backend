@@ -19,3 +19,24 @@ Authorization: {{token}}
 {
   "name": "test1"
 }
+
+### API Find all bank question
+GET {{hostname}}/bank-questions
+Authorization: {{token}}
+
+### API Find a bank question by id
+GET {{hostname}}/bank-questions/0EF0414D-034F-4186-A63D-E05FB455889F
+Authorization: {{token}}
+
+### API Delete a bank question by id
+DELETE {{hostname}}/bank-questions/2262EEEC-1502-4557-A7F8-87ACF93B9644
+Authorization: {{token}}
+
+### API Update a bank question by id
+PUT {{hostname}}/bank-questions/0ef0414d-034f-4186-a63d-e05fb455889f
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "name":"test2"
+}
