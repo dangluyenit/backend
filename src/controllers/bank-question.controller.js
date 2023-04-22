@@ -7,7 +7,6 @@ const bankQuestionService = require('../services/bank-question.service');
 class BankQuestionController {
   async create(req, res) {
     const { name } = req.body;
-
     try {
       return new SuccessResponse({
         message: 'Created bank question successfully',
@@ -24,10 +23,8 @@ class BankQuestionController {
 
   async findOne(req, res) {
     const { id } = req.params;
-
     try {
       const bankQuestion = await bankQuestionService.findOne({ id });
-
       if (bankQuestion) {
         return new SuccessResponse({
           message: `Find a bank question with id ${id} successfully`,
@@ -62,7 +59,6 @@ class BankQuestionController {
 
   async delete(req, res) {
     const { id } = req.params;
-
     try {
       const deleted = await bankQuestionService.delete({ id });
       if (deleted) {
@@ -85,9 +81,6 @@ class BankQuestionController {
   async update(req, res) {
     const { name } = req.body;
     const { id } = req.params;
-
-    console.log(id, name);
-
     try {
       const bankQuestion = await bankQuestionService.update({ id, name });
       if (bankQuestion) {
