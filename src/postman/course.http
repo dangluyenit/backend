@@ -6,6 +6,24 @@ POST {{hostname}}/courses
 Content-Type: application/json
 
 {
-  "name": "test1",
+  "name": "test2",
+  "teacherCode": "1"
+}
+
+### API Find all course
+GET {{hostname}}/courses
+
+### API Find a course by id
+GET {{hostname}}/courses/516E90D6-30B0-4C41-B494-4C37801F709D
+
+### API Delete a course by id
+DELETE {{hostname}}/courses/516E90D6-30B0-4C41-B494-4C37801F709D
+
+### API Update a course by id
+PUT {{hostname}}/courses/516E90D6-30B0-4C41-B494-4C37801F709D
+Content-Type: application/json
+
+{
+  "name": "test2",
   "teacherCode": "1"
 }
