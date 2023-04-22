@@ -9,3 +9,9 @@ Content-Type: application/json
   "idCourse": "2ef18a48-bbcb-46cf-8109-bd08e6309e3d",
   "studentCode": "1"
 }
+
+### API Find a join course by id
+GET {{hostname}}/courses/2ef18a48-bbcb-46cf-8109-bd08e6309e3d
+
+### API Find all join course
+GET {{hostname}}/courses

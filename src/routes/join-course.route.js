@@ -1,8 +1,10 @@
 'use strict';
 
 const router = require('express').Router();
-const JoinCourseController = require('../controllers/join-course.controller');
+const joinCourseController = require('../controllers/join-course.controller');
 
-router.post('/', JoinCourseController.create);
+router.post('/', joinCourseController.create);
+router.get('/', joinCourseController.findAll);
+router.get('/:id', joinCourseController.findOne);
 
 module.exports = router;
