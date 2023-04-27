@@ -10,3 +10,22 @@ Content-Type: application/json
   "teacherCode": "1",
   "quantityQuestion":12
 }
+
+### API Find a test  by id
+GET {{hostname}}/tests/48CBD26F-50BA-488B-AF81-8F10EE54A661
+
+### API Find all test 
+GET {{hostname}}/tests
+
+### API Delete a test by id
+DELETE {{hostname}}/tests/537C959F-F0C3-44B6-8114-8CAC49C691D8
+
+### API Update a test by id
+PUT {{hostname}}/tests/537C959F-F0C3-44B6-8114-8CAC49C691D8
+Content-Type: application/json
+
+{
+  "name": "test2",
+  "teacherCode": "1",
+  "quantityQuestion":12
+}

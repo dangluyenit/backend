@@ -1,8 +1,12 @@
 'use strict';
 
 const router = require('express').Router();
-const TestController = require('../controllers/test.controller');
+const testController = require('../controllers/test.controller');
 
-router.post('/', TestController.create);
+router.post('/', testController.create);
+router.get('/:id', testController.findOne);
+router.get('/', testController.findAll);
+router.put('/:id', testController.update);
+router.delete('/:id', testController.delete);
 
 module.exports = router;
