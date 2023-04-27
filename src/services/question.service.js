@@ -18,6 +18,50 @@ class QuestionService {
       throw new Error(error);
     }
   }
+
+  async findOne({ id }) {
+    const repo = dataSource.getRepository(TABLE.QUESTION);
+    try {
+      return await repo.findOneBy({ id });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async findAll() {
+    const repo = dataSource.getRepository(TABLE.QUESTION);
+    try {
+      return await repo.find();
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async delete({ id }) {
+    const repo = dataSource.getRepository(TABLE.QUESTION);
+    try {
+      const question = await this.findOne({ id });
+      if (question) return await repo.remove(question);
+      return null;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async update({ id, content, idBankQuestion }) {
+    const repo = dataSource.getRepository(TABLE.QUESTION);
+    try {
+      const question = await this.findOne({ id });
+      if (question) {
+        question.content = content;
+        question.idBankQuestion = idBankQuestion;
+        return await repo.save(question);
+      }
+      return null;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = new QuestionService();

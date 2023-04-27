@@ -29,3 +29,21 @@ Content-Type: application/json
   "content": "test1",
   "idBankQuestion": "0EF0414D-034F-4186-A63D-E05FB455889F"
 }
+
+### API Find a question by id
+GET {{hostname}}/questions/537C959F-F0C3-44B6-8114-8CAC49C691D8
+
+### API Find all question
+GET {{hostname}}/questions
+
+### API Delete a question by id
+DELETE {{hostname}}/questions/537C959F-F0C3-44B6-8114-8CAC49C691D8
+
+### API Update a question by id
+PUT {{hostname}}/questions/537C959F-F0C3-44B6-8114-8CAC49C691D8
+Content-Type: application/json
+
+{
+  "content": "test2",
+  "idBankQuestion": "0ef0414d-034f-4186-a63d-e05fb455889f"
+}
