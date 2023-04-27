@@ -30,11 +30,11 @@ class LessonController {
   async findOne(req, res) {
     const { id } = req.params;
     try {
-      const course = await lessonService.findOne({ id });
-      if (course) {
+      const lesson = await lessonService.findOne({ id });
+      if (lesson) {
         return new SuccessResponse({
           message: `Find a lesson with id ${id} successfully`,
-          metadata: course,
+          metadata: lesson,
         }).send(res);
       }
       return new ErrorResponse({
