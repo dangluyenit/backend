@@ -2,19 +2,9 @@
 @hostname = http://localhost:4000/api/v1
 @token = {{auth.response.body.$.metadata.accessToken}}
 
-### API SignIn Admin
+### API SignIn Student
 # @name auth
-POST {{hostname}}/auth/admin/sign-in
-Content-Type: application/json
-
-{
-  "username": "admin",
-  "password": "123"
-}
-
-### API SignIn Teacher
-# @name auth
-POST {{hostname}}/auth/teacher/sign-in
+POST {{hostname}}/auth/student/sign-in
 Content-Type: application/json
 
 {
@@ -31,3 +21,9 @@ Content-Type: application/json
   "answer": "sada",
   "isCorrect": true
 }
+
+### API Find a question answer by id
+GET {{hostname}}/question-answers/48CBD26F-50BA-488B-AF81-8F10EE54A661
+
+### API Find all question answer
+GET {{hostname}}/question-answers

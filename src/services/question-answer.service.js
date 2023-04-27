@@ -17,6 +17,24 @@ class QuestionAnswerService {
 
     return await questionAnswerRepository.save(questionAnswer);
   }
+
+  async findOne({ id }) {
+    const repo = dataSource.getRepository(TABLE.QUESTION_ANSWER);
+    try {
+      return await repo.findOneBy({ id });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async findAll() {
+    const repo = dataSource.getRepository(TABLE.QUESTION_ANSWER);
+    try {
+      return await repo.find();
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = new QuestionAnswerService();
