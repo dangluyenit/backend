@@ -6,5 +6,7 @@ const lessonController = require('../controllers/lesson.controller');
 router.post('/', lessonController.create);
 router.get('/:id', lessonController.findOne);
 router.get('/', lessonController.findAll);
+router.put('/:id', lessonController.update);
+router.delete('/:id', lessonController.delete);
 
 module.exports = router;

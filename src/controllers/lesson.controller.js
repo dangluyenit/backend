@@ -62,6 +62,57 @@ class LessonController {
       }).send(res);
     }
   }
+
+  async delete(req, res) {
+    const { id } = req.params;
+    try {
+      const deleted = await lessonService.delete({ id });
+      if (deleted) {
+        return new SuccessResponse({
+          message: `Delete a lesson with id ${id} successfully`,
+        }).send(res);
+      }
+      return new ErrorResponse({
+        message: `Not found a lesson with id ${id}`,
+        statusCode: STATUS_CODE.NOT_FOUND,
+      }).send(res);
+    } catch (error) {
+      return new ErrorResponse({
+        message: error.message,
+        statusCode: STATUS_CODE.INTERNAL_SERVER_ERROR,
+      }).send(res);
+    }
+  }
+
+  async update(req, res) {
+    const { name, content, image, video, idCourse } = req.body;
+    const { id } = req.params;
+    try {
+      const lesson = await lessonService.update({
+        id,
+        name,
+        content,
+        image,
+        video,
+        idCourse,
+      });
+      if (lesson) {
+        return new SuccessResponse({
+          message: `Update a lesson with id ${id} successfully`,
+          metadata: lesson,
+        }).send(res);
+      }
+      return new ErrorResponse({
+        message: `Not found a lesson with id ${id}`,
+        statusCode: STATUS_CODE.NOT_FOUND,
+      }).send(res);
+    } catch (error) {
+      return new ErrorResponse({
+        message: error.message,
+        statusCode: STATUS_CODE.INTERNAL_SERVER_ERROR,
+      }).send(res);
+    }
+  }
 }
 
 module.exports = new LessonController();

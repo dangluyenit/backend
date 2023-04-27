@@ -18,3 +18,18 @@ GET {{hostname}}/lessons/79CFED62-7050-48E5-9C24-45661195A010
 
 ### API Find all lesson
 GET {{hostname}}/lessons
+
+### API Delete a lesson by id
+DELETE {{hostname}}/lessons/79CFED62-7050-48E5-9C24-45661195A010
+
+### API Update a lesson by id
+PUT {{hostname}}/lessons/79CFED62-7050-48E5-9C24-45661195A010
+Content-Type: application/json
+
+{
+  "name": "test2",
+  "content": "test2",
+  "image":"",
+  "video":"",
+  "idCourse":"9f7376e0-14d0-44b7-a96d-02fef3722291"
+}
