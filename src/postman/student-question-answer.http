@@ -14,5 +14,5 @@ Content-Type: application/json
 ### API Find a student question answer by id
 GET {{hostname}}/student-question-answers/48CBD26F-50BA-488B-AF81-8F10EE54A661
 
-### API Find all student-question-answer
+### API Find all student question answer
 GET {{hostname}}/student-question-answers
