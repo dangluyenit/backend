@@ -16,6 +16,24 @@ class ScoreService {
 
     return await repo.save(newScore);
   }
+
+  async findOne({ id }) {
+    const repo = dataSource.getRepository(TABLE.SCORE);
+    try {
+      return await repo.findOneBy({ id });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async findAll() {
+    const repo = dataSource.getRepository(TABLE.SCORE);
+    try {
+      return await repo.find();
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = new ScoreService();
