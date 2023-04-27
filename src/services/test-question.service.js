@@ -15,6 +15,24 @@ class TestQuestionService {
 
     return await repo.save(testQuestion);
   }
+
+  async findOne({ id }) {
+    const repo = dataSource.getRepository(TABLE.TEST_QUESTION);
+    try {
+      return await repo.findOneBy({ id });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async findAll() {
+    const repo = dataSource.getRepository(TABLE.TEST_QUESTION);
+    try {
+      return await repo.find();
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = new TestQuestionService();

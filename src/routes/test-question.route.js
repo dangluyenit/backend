@@ -1,8 +1,10 @@
 'use strict';
 
 const router = require('express').Router();
-const studentQuestionAnswerController = require('../controllers/student-question-answer.controller');
+const testQuestionController = require('../controllers/test-question.controller');
 
-router.post('/', studentQuestionAnswerController.create);
+router.post('/', testQuestionController.create);
+router.get('/:id', testQuestionController.findOne);
+router.get('/', testQuestionController.findAll);
 
 module.exports = router;
