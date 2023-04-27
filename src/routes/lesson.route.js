@@ -1,8 +1,10 @@
 'use strict';
 
 const router = require('express').Router();
-const LessonController = require('../controllers/lesson.controller');
+const lessonController = require('../controllers/lesson.controller');
 
-router.post('/', LessonController.create);
+router.post('/', lessonController.create);
+router.get('/:id', lessonController.findOne);
+router.get('/', lessonController.findAll);
 
 module.exports = router;

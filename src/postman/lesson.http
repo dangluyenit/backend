@@ -12,3 +12,9 @@ Content-Type: application/json
   "video":"",
   "idCourse":"9f7376e0-14d0-44b7-a96d-02fef3722291"
 }
+
+### API Find a lesson by id
+GET {{hostname}}/lessons/79CFED62-7050-48E5-9C24-45661195A010
+
+### API Find all lesson
+GET {{hostname}}/lessons
