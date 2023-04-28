@@ -9,12 +9,10 @@ const {
 class StudentQuestionAnswerService {
   async create({ studentCode, idTestQuestion, idQuestionAnswer }) {
     const repo = dataSource.getRepository(TABLE.STUDENT_QUESTION_ANSWER);
-
     const studentQuestionAnswer = new StudentQuestionAnswer();
     studentQuestionAnswer.studentCode = studentCode;
     studentQuestionAnswer.idTestQuestion = idTestQuestion;
     studentQuestionAnswer.idQuestionAnswer = idQuestionAnswer;
-
     return await repo.save(studentQuestionAnswer);
   }
 

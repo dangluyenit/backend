@@ -10,7 +10,6 @@ const { ErrorResponse } = require('../helpers');
 class AuthStudentService {
   static signUp = async ({ email, password, studentCode }) => {
     const passwordHash = await bcrypt.hash(password, 10);
-
     const studentRepository = dataSource.getRepository(TABLE.STUDENT);
     try {
       await studentRepository.insert({
@@ -18,19 +17,16 @@ class AuthStudentService {
         password: passwordHash,
         studentCode,
       });
-
       const { accessToken, refreshToken } = await createToken({
         email,
         studentCode,
         role: ROLE.STUDENT,
       });
-
       const tokenRepository = dataSource.getRepository(TABLE.TOKEN);
       await tokenRepository.insert({
         refreshToken,
         studentCode,
       });
-
       return { accessToken, refreshToken };
     } catch (error) {
       if (error.message.includes('PRIMARY KEY')) {
@@ -51,36 +47,30 @@ class AuthStudentService {
   static signIn = async ({ email, password }) => {
     const studentRepository = dataSource.getRepository(TABLE.STUDENT);
     const student = await studentRepository.findOneBy({ email });
-
     if (!student) {
       throw new ErrorResponse({
         message: 'Email or password is incorrect',
         statusCode: STATUS_CODE.BAD_REQUEST,
       });
     }
-
     const match = await bcrypt.compare(password, student.password);
-
     if (!match) {
       throw new ErrorResponse({
         message: 'Email or password is incorrect',
         statusCode: STATUS_CODE.BAD_REQUEST,
       });
     }
-
     try {
       const { accessToken, refreshToken } = await createToken({
         email,
         studentCode: student.studentCode,
         role: ROLE.STUDENT,
       });
-
       const tokenRepository = dataSource.getRepository(TABLE.TOKEN);
       await tokenRepository.insert({
         refreshToken,
         studentCode: student.studentCode,
       });
-
       return { accessToken, refreshToken };
     } catch (error) {
       throw new Error(error);
@@ -96,16 +86,13 @@ class AuthStudentService {
         });
       }
     });
-
     if (!_refreshToken) {
       throw new ErrorResponse({
         message: 'unauthorized',
         statusCode: STATUS_CODE.UNAUTHORIZED,
       });
     }
-
     let decoded = null;
-
     try {
       decoded = jwt.verify(_refreshToken, process.env.JWT_PRIVATE_KEY);
     } catch (error) {
@@ -114,7 +101,6 @@ class AuthStudentService {
         statusCode: STATUS_CODE.UNAUTHORIZED,
       });
     }
-
     const tokenRepository = dataSource.getRepository(TABLE.TOKEN);
     // get list refresh token by student code
     const listRefreshToken = await tokenRepository.find({
@@ -122,28 +108,22 @@ class AuthStudentService {
         studentCode: decoded.payload.studentCode,
       },
     });
-
     // check refresh token it is valid or not, it valid when refresh token is exist in database
     let refreshTokenExist = false;
-
     listRefreshToken.forEach((refreshToken) => {
       if (refreshToken.refreshToken === _refreshToken) {
         return (refreshTokenExist = true);
       }
     });
-
     if (refreshTokenExist) {
       // remove old refresh token
       await tokenRepository.delete({ refreshToken: _refreshToken });
-
       const { accessToken, refreshToken } = await createToken(decoded.payload);
-
       // insert new refresh token
       await tokenRepository.insert({
         refreshToken,
         studentCode: decoded.payload.studentCode,
       });
-
       return { accessToken, refreshToken };
     } else {
       throw new ErrorResponse({

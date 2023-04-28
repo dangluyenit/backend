@@ -8,7 +8,6 @@ class JoinCourseService {
     const joinCourse = new JoinCourse();
     joinCourse.idCourse = idCourse;
     joinCourse.studentCode = studentCode;
-
     return await repo.save(joinCourse);
   }
 

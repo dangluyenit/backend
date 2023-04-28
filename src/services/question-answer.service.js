@@ -9,12 +9,10 @@ class QuestionAnswerService {
     const questionAnswerRepository = dataSource.getRepository(
       TABLE.QUESTION_ANSWER
     );
-
     const questionAnswer = new QuestionAnswer();
     questionAnswer.answer = answer;
     questionAnswer.isCorrect = isCorrect;
     questionAnswer.idQuestion = idQuestion;
-
     return await questionAnswerRepository.save(questionAnswer);
   }
 

@@ -7,13 +7,11 @@ const { Score } = require('../models/score.model');
 class ScoreService {
   async create({ idTest, studentCode, score }) {
     const repo = dataSource.getRepository(TABLE.SCORE);
-
     const newScore = new Score();
     newScore.idTest = idTest;
     newScore.studentCode = studentCode;
     newScore.score = score;
     newScore.submissionTime = new Date().toString();
-
     return await repo.save(newScore);
   }
 

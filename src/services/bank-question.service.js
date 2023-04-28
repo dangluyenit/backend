@@ -7,11 +7,9 @@ const { BankQuestion } = require('../models/bank-question.model');
 class BankQuestionService {
   async create({ name }) {
     const repo = dataSource.getRepository(TABLE.BANK_QUESTION);
-
     try {
       const bankQuestion = new BankQuestion();
       bankQuestion.name = name;
-
       return await repo.save(bankQuestion);
     } catch (error) {
       throw new Error(error);
@@ -20,7 +18,6 @@ class BankQuestionService {
 
   async findOne({ id }) {
     const repo = dataSource.getRepository(TABLE.BANK_QUESTION);
-
     try {
       return await repo.findOneBy({ id });
     } catch (error) {
@@ -30,7 +27,6 @@ class BankQuestionService {
 
   async findAll() {
     const repo = dataSource.getRepository(TABLE.BANK_QUESTION);
-
     try {
       return await repo.find();
     } catch (error) {
@@ -40,10 +36,8 @@ class BankQuestionService {
 
   async delete({ id }) {
     const repo = dataSource.getRepository(TABLE.BANK_QUESTION);
-
     try {
       const bankQuestion = await this.findOne({ id });
-
       if (bankQuestion) {
         return await repo.remove(bankQuestion);
       }
@@ -55,12 +49,10 @@ class BankQuestionService {
 
   async update({ id, name }) {
     const repo = dataSource.getRepository(TABLE.BANK_QUESTION);
-
     try {
       const bankQuestion = await this.findOne({ id });
       if (bankQuestion) {
         bankQuestion.name = name;
-
         return await repo.save(bankQuestion);
       }
       return null;

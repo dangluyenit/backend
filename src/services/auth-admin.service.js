@@ -10,25 +10,21 @@ const { ErrorResponse } = require('../helpers');
 class AuthAdminService {
   static signUp = async ({ username, password }) => {
     const passwordHash = await bcrypt.hash(password, 10);
-
     const adminRepository = dataSource.getRepository(TABLE.ADMIN);
     try {
       await adminRepository.insert({
         username,
         password: passwordHash,
       });
-
       const { accessToken, refreshToken } = await createToken({
         username,
         role: ROLE.ADMIN,
       });
-
       const tokenRepository = dataSource.getRepository(TABLE.TOKEN);
       await tokenRepository.insert({
         refreshToken,
         adminUsername: username,
       });
-
       return { accessToken, refreshToken };
     } catch (error) {
       if (error.message.includes('PRIMARY KEY')) {
@@ -44,35 +40,29 @@ class AuthAdminService {
   static signIn = async ({ username, password }) => {
     const adminRepository = dataSource.getRepository(TABLE.ADMIN);
     const admin = await adminRepository.findOneBy({ username });
-
     if (!admin) {
       throw new ErrorResponse({
         message: 'Username or password is incorrect',
         statusCode: STATUS_CODE.BAD_REQUEST,
       });
     }
-
     const match = await bcrypt.compare(password, admin.password);
-
     if (!match) {
       throw new ErrorResponse({
         message: 'Username or password is incorrect',
         statusCode: STATUS_CODE.BAD_REQUEST,
       });
     }
-
     try {
       const { accessToken, refreshToken } = await createToken({
         username,
         role: ROLE.ADMIN,
       });
-
       const tokenRepository = dataSource.getRepository(TABLE.TOKEN);
       await tokenRepository.insert({
         refreshToken,
         adminUsername: username,
       });
-
       return { accessToken, refreshToken };
     } catch (error) {
       throw new Error(error);
@@ -88,16 +78,13 @@ class AuthAdminService {
         });
       }
     });
-
     if (!_refreshToken) {
       throw new ErrorResponse({
         message: 'unauthorized',
         statusCode: STATUS_CODE.UNAUTHORIZED,
       });
     }
-
     let decoded = null;
-
     try {
       decoded = jwt.verify(_refreshToken, process.env.JWT_PRIVATE_KEY);
     } catch (error) {
@@ -106,9 +93,7 @@ class AuthAdminService {
         statusCode: STATUS_CODE.UNAUTHORIZED,
       });
     }
-
     const username = decoded.payload.username;
-
     const tokenRepository = dataSource.getRepository(TABLE.TOKEN);
     // get list refresh token by student code
     const listRefreshToken = await tokenRepository
@@ -116,28 +101,22 @@ class AuthAdminService {
       .where('adminUsername = :username', { username })
       .getMany()
       .catch((error) => console.log(error));
-
     // check refresh token it is valid or not, it valid when refresh token is exist in database
     let refreshTokenExist = false;
-
     listRefreshToken.forEach((refreshToken) => {
       if (refreshToken.refreshToken === _refreshToken) {
         return (refreshTokenExist = true);
       }
     });
-
     if (refreshTokenExist) {
       // remove old refresh token
       await tokenRepository.delete({ refreshToken: _refreshToken });
-
       const { accessToken, refreshToken } = await createToken(decoded.payload);
-
       // insert new refresh token
       await tokenRepository.insert({
         refreshToken,
         adminUsername: username,
       });
-
       return { accessToken, refreshToken };
     } else {
       throw new ErrorResponse({
