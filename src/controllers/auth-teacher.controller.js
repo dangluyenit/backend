@@ -6,19 +6,17 @@ const {
   HEADER,
 } = require('../constants/common.constant');
 const { ErrorResponse, SuccessResponse } = require('../helpers');
-const AuthTeacherService = require('../services/auth-teacher.service');
+const authTeacherService = require('../services/auth-teacher.service');
 
 class AuthTeacherController {
   async signUp(req, res) {
     const { email, password, teacherCode } = req.body;
-
     try {
-      const { accessToken, refreshToken } = await AuthTeacherService.signUp({
+      const { accessToken, refreshToken } = await authTeacherService.signUp({
         email,
         password,
         teacherCode,
       });
-
       return new SuccessResponse({
         message: 'Created account teacher successfully',
         statusCode: STATUS_CODE.CREATED,
@@ -35,13 +33,11 @@ class AuthTeacherController {
 
   async signIn(req, res) {
     const { email, password } = req.body;
-
     try {
-      const { accessToken, refreshToken } = await AuthTeacherService.signIn({
+      const { accessToken, refreshToken } = await authTeacherService.signIn({
         email,
         password,
       });
-
       return new SuccessResponse({
         message: 'Sign in successfully',
         metadata: { accessToken, refreshToken },
@@ -58,13 +54,11 @@ class AuthTeacherController {
     try {
       const _refreshToken = req.headers[HEADER.REFRESH_TOKEN];
       const _accessToken = req.headers[HEADER.AUTHORIZATION];
-
       const { accessToken, refreshToken } =
-        await AuthTeacherService.handleRefreshToken({
+        await authTeacherService.handleRefreshToken({
           _refreshToken,
           _accessToken,
         });
-
       return new SuccessResponse({
         message: 'Refresh token successfully',
         metadata: { accessToken, refreshToken },
