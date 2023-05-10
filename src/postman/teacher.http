@@ -1,0 +1,39 @@
+### hostname
+@hostname = http://localhost:4000/api/v1
+@token = {{auth.response.body.$.metadata.accessToken}}
+
+### API SignIn
+# @name auth
+POST {{hostname}}/auth/teacher/sign-in
+Content-Type: application/json
+
+{
+  "email": "hieu@gmail.com",
+  "password": "123"
+}
+
+### API get one teacher by teacher code
+GET {{hostname}}/teacher/1
+Authorization: {{token}}
+
+### API get all teacher
+GET {{hostname}}/teacher
+Authorization: {{token}}
+
+### API delete a teacher
+DELETE {{hostname}}/teacher/1
+Authorization: {{token}}
+
+### API update a teacher
+PUT {{hostname}}/teacher/1
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "name": "hieu",
+  "sex": "Male",
+  "dob": "1995-12-01",
+  "address": "Gia Lai",
+  "phone": "0111111111",
+  "image": "test..."
+}
