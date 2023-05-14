@@ -3,6 +3,7 @@
 const { STATUS_CODE } = require('../constants/common.constant');
 const { SuccessResponse, ErrorResponse } = require('../helpers');
 const courseService = require('../services/course.service');
+const lessonService = require('../services/lesson.service');
 
 class CourseController {
   async create(req, res) {
@@ -92,6 +93,21 @@ class CourseController {
       return new ErrorResponse({
         message: `Not found a course with id ${id}`,
         statusCode: STATUS_CODE.NOT_FOUND,
+      }).send(res);
+    } catch (error) {
+      return new ErrorResponse({
+        message: error.message,
+        statusCode: STATUS_CODE.INTERNAL_SERVER_ERROR,
+      }).send(res);
+    }
+  }
+
+  async getLessonByIdCourse(req, res) {
+    const { id } = req.params;
+    try {
+      return new SuccessResponse({
+        message: `Find lesson by id course ${id} successfully`,
+        metadata: await lessonService.getLessonByIdCourse({ id }),
       }).send(res);
     } catch (error) {
       return new ErrorResponse({

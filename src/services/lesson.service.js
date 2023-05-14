@@ -62,6 +62,18 @@ class LessonService {
       throw new Error(error);
     }
   }
+
+  async getLessonByIdCourse({ id }) {
+    const repo = dataSource.getRepository(TABLE.LESSON);
+    try {
+      const test = await repo.find({
+        where: { idCourse: id },
+      });
+      return test;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = new LessonService();
