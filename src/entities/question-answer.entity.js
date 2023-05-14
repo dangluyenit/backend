@@ -17,9 +17,12 @@ module.exports = new EntitySchema({
     isCorrect: {
       type: 'bit',
     },
+    idQuestion: {
+      type: 'uuid',
+    },
   },
   relations: {
-    idQuestion: {
+    question: {
       target: TABLE.QUESTION,
       type: 'many-to-one',
       joinColumn: {

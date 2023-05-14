@@ -25,10 +25,10 @@ module.exports = new EntitySchema({
       joinTable: true,
       cascade: true,
     },
-    lessons: {
-      target: TABLE.LESSON,
-      type: 'one-to-many',
-      inverseSide: 'course',
-    },
+    // lessons: {
+    //   target: TABLE.LESSON,
+    //   type: 'one-to-many',
+    //   inverseSide: 'course',
+    // },
   },
 });

@@ -20,9 +20,12 @@ module.exports = new EntitySchema({
     quantityQuestion: {
       type: 'int',
     },
+    teacherCode: {
+      type: 'varchar',
+    },
   },
   relations: {
-    teacherCode: {
+    teacher: {
       target: TABLE.TEACHER,
       type: 'many-to-one',
       joinColumn: {

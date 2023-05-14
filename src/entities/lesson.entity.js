@@ -34,7 +34,7 @@ module.exports = new EntitySchema({
       joinColumn: {
         name: 'idCourse',
       },
-      inverseSide: 'lessons',
+      // inverseSide: 'lessons',
       cascade: true,
     },
   },

@@ -17,9 +17,15 @@ module.exports = new EntitySchema({
     score: {
       type: 'float',
     },
+    idTest: {
+      type: 'uuid',
+    },
+    studentCode: {
+      type: 'varchar',
+    },
   },
   relations: {
-    idTest: {
+    test: {
       target: TABLE.TEST,
       type: 'many-to-one',
       joinColumn: {
@@ -28,7 +34,7 @@ module.exports = new EntitySchema({
       joinTable: true,
       cascade: true,
     },
-    studentCode: {
+    student: {
       target: TABLE.STUDENT,
       type: 'many-to-one',
       joinColumn: {

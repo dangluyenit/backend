@@ -14,9 +14,12 @@ module.exports = new EntitySchema({
     content: {
       type: 'nvarchar',
     },
+    idBankQuestion: {
+      type: 'uuid',
+    },
   },
   relations: {
-    idBankQuestion: {
+    bankQuestion: {
       target: TABLE.BANK_QUESTION,
       type: 'many-to-one',
       joinColumn: {

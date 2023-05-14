@@ -11,9 +11,18 @@ module.exports = new EntitySchema({
       type: 'varchar',
       unique: true,
     },
+    adminUsername: {
+      type: 'varchar',
+    },
+    studentCode: {
+      type: 'varchar',
+    },
+    teacherCode: {
+      type: 'varchar',
+    },
   },
   relations: {
-    adminUsername: {
+    admin: {
       target: TABLE.ADMIN,
       type: 'many-to-one',
       joinColumn: {
@@ -22,7 +31,7 @@ module.exports = new EntitySchema({
       joinTable: true,
       cascade: true,
     },
-    studentCode: {
+    student: {
       target: TABLE.STUDENT,
       type: 'many-to-one',
       joinColumn: {
@@ -31,7 +40,7 @@ module.exports = new EntitySchema({
       joinTable: true,
       cascade: true,
     },
-    teacherCode: {
+    teacher: {
       target: TABLE.TEACHER,
       type: 'many-to-one',
       joinColumn: {
