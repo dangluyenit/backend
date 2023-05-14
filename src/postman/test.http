@@ -18,7 +18,7 @@ GET {{hostname}}/tests/48CBD26F-50BA-488B-AF81-8F10EE54A661
 GET {{hostname}}/tests
 
 ### API Delete a test by id
-DELETE {{hostname}}/tests/537C959F-F0C3-44B6-8114-8CAC49C691D8
+DELETE {{hostname}}/tests/BFADDD4A-3635-40FA-9506-C55CEF8DBFAF
 
 ### API Update a test by id
 PUT {{hostname}}/tests/537C959F-F0C3-44B6-8114-8CAC49C691D8

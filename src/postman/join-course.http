@@ -6,12 +6,12 @@ POST {{hostname}}/join-courses
 Content-Type: application/json
 
 {
-  "idCourse": "2ef18a48-bbcb-46cf-8109-bd08e6309e3d",
+  "idCourse": "198D16C9-A31B-46C0-A888-E3AB38048B14",
   "studentCode": "1"
 }
 
 ### API Find a join course by id
-GET {{hostname}}/courses/2ef18a48-bbcb-46cf-8109-bd08e6309e3d
+GET {{hostname}}/courses/2503D5C2-8AFB-45B5-898E-68D419C1C2D2
 
 ### API Find all join course
 GET {{hostname}}/courses

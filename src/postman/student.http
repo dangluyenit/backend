@@ -30,8 +30,8 @@ Authorization: {{token}}
 Content-Type: application/json
 
 {
-  "name": "hieu",
-  "sex": "Male",
+  "name": "Hiếu",
+  "sex": "Nam",
   "dob": "2000-12-01",
   "address": "Gia Lai",
   "phone": "0333333333",
