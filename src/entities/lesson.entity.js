@@ -23,15 +23,18 @@ module.exports = new EntitySchema({
     video: {
       type: 'varchar',
     },
+    idCourse: {
+      type: 'uuid',
+    },
   },
   relations: {
-    idCourse: {
+    course: {
       target: TABLE.COURSE,
       type: 'many-to-one',
       joinColumn: {
         name: 'idCourse',
       },
-      joinTable: true,
+      inverseSide: 'lessons',
       cascade: true,
     },
   },
