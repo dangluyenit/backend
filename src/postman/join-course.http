@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ### API Find a join course by id
-GET {{hostname}}/courses/2503D5C2-8AFB-45B5-898E-68D419C1C2D2
+GET {{hostname}}/join-courses/2503D5C2-8AFB-45B5-898E-68D419C1C2D2
 
 ### API Find all join course
-GET {{hostname}}/courses
+GET {{hostname}}/join-courses
