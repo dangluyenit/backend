@@ -14,7 +14,7 @@ Content-Type: application/json
 }
 
 ### API Find a lesson by id
-GET {{hostname}}/lessons/79CFED62-7050-48E5-9C24-45661195A010
+GET {{hostname}}/lessons/2503D5C2-8AFB-45B5-898E-68D419C1C2D2
 
 ### API Find all lesson
 GET {{hostname}}/lessons
