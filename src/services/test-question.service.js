@@ -31,6 +31,19 @@ class TestQuestionService {
       throw new Error(error);
     }
   }
+
+  async findByIdTest({ id }) {
+    const repo = dataSource.getRepository(TABLE.TEST_QUESTION);
+    try {
+      return await repo.find({
+        where: {
+          idTest: id,
+        },
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = new TestQuestionService();

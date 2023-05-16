@@ -16,3 +16,6 @@ GET {{hostname}}/test-questions/48CBD26F-50BA-488B-AF81-8F10EE54A661
 
 ### API Find all test question
 GET {{hostname}}/test-questions
+
+### API Find test question by id test
+GET {{hostname}}/test-questions/tests/48CBD26F-50BA-488B-AF81-8F10EE54A661
