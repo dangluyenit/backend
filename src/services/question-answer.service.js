@@ -33,6 +33,19 @@ class QuestionAnswerService {
       throw new Error(error);
     }
   }
+
+  async findByIdQuestion({ idQuestion }) {
+    const repo = dataSource.getRepository(TABLE.QUESTION_ANSWER);
+    try {
+      return await repo.find({
+        where: {
+          idQuestion,
+        },
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = new QuestionAnswerService();

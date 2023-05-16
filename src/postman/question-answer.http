@@ -27,3 +27,6 @@ GET {{hostname}}/question-answers/48CBD26F-50BA-488B-AF81-8F10EE54A661
 
 ### API Find all question answer
 GET {{hostname}}/question-answers
+
+### API Find all question answer by id question
+GET {{hostname}}/question-answers/questions/537C959F-F0C3-44B6-8114-8CAC49C691D8

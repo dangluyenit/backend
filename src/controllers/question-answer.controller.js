@@ -60,6 +60,23 @@ class QuestionAnswerController {
       }).send(res);
     }
   }
+
+  async findByIdQuestion(req, res) {
+    const { id } = req.params;
+    try {
+      return new SuccessResponse({
+        message: `Find all question answer by id question ${id} successfully`,
+        metadata: await questionAnswerService.findByIdQuestion({
+          idQuestion: id,
+        }),
+      }).send(res);
+    } catch (error) {
+      return new ErrorResponse({
+        message: error.message,
+        statusCode: STATUS_CODE.INTERNAL_SERVER_ERROR,
+      }).send(res);
+    }
+  }
 }
 
 module.exports = new QuestionAnswerController();
