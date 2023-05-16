@@ -34,12 +34,12 @@ class QuestionAnswerService {
     }
   }
 
-  async findByIdQuestion({ idQuestion }) {
+  async findByIdQuestion({ id }) {
     const repo = dataSource.getRepository(TABLE.QUESTION_ANSWER);
     try {
       return await repo.find({
         where: {
-          idQuestion,
+          idQuestion: id,
         },
       });
     } catch (error) {

@@ -67,7 +67,7 @@ class QuestionAnswerController {
       return new SuccessResponse({
         message: `Find all question answer by id question ${id} successfully`,
         metadata: await questionAnswerService.findByIdQuestion({
-          idQuestion: id,
+          id,
         }),
       }).send(res);
     } catch (error) {
