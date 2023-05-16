@@ -63,7 +63,7 @@ class LessonService {
     }
   }
 
-  async getLessonByIdCourse({ id }) {
+  async findByIdCourse({ id }) {
     const repo = dataSource.getRepository(TABLE.LESSON);
     try {
       const test = await repo.find({

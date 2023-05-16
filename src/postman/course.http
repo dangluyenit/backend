@@ -26,6 +26,3 @@ Content-Type: application/json
   "name": "Java Cơ bản",
   "teacherCode": "1"
 }
-
-### API Get lesson by id course
-GET {{hostname}}/courses/9F7376E0-14D0-44B7-A96D-02FEF3722291/lessons

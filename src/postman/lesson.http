@@ -19,6 +19,9 @@ GET {{hostname}}/lessons/2503D5C2-8AFB-45B5-898E-68D419C1C2D2
 ### API Find all lesson
 GET {{hostname}}/lessons
 
+### API Find lesson by id course
+GET {{hostname}}/lessons/courses/9F7376E0-14D0-44B7-A96D-02FEF3722291
+
 ### API Delete a lesson by id
 DELETE {{hostname}}/lessons/79CFED62-7050-48E5-9C24-45661195A010
 
