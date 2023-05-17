@@ -36,6 +36,9 @@ GET {{hostname}}/questions/537C959F-F0C3-44B6-8114-8CAC49C691D8
 ### API Find all question
 GET {{hostname}}/questions
 
+### API Find question by id bank question
+GET {{hostname}}/questions/bank-questions/0EF0414D-034F-4186-A63D-E05FB455889F
+
 ### API Delete a question by id
 DELETE {{hostname}}/questions/537C959F-F0C3-44B6-8114-8CAC49C691D8
 

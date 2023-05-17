@@ -60,6 +60,19 @@ class QuestionService {
       throw new Error(error);
     }
   }
+
+  async findByIdBankQuestion({ id }) {
+    const repo = dataSource.getRepository(TABLE.QUESTION);
+    try {
+      return await repo.find({
+        where: {
+          idBankQuestion: id,
+        },
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = new QuestionService();
