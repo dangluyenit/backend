@@ -6,7 +6,6 @@ POST {{hostname}}/test-questions
 Content-Type: application/json
 
 {
-  "studentCode": "",
   "idTest": "",
   "idQuestion": "" 
 }

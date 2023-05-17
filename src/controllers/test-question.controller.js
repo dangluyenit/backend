@@ -6,13 +6,12 @@ const testQuestionService = require('../services/test-question.service');
 
 class TestQuestionController {
   async create(req, res) {
-    const { studentCode, idTest, idQuestion } = req.body;
+    const { idTest, idQuestion } = req.body;
     try {
       return new SuccessResponse({
         message: 'Created test question successfully',
         statusCode: STATUS_CODE.CREATED,
         metadata: await testQuestionService.create({
-          studentCode,
           idTest,
           idQuestion,
         }),

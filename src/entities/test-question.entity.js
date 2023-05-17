@@ -11,9 +11,6 @@ module.exports = new EntitySchema({
       type: 'uuid',
       generated: 'uuid',
     },
-    studentCode: {
-      type: 'varchar',
-    },
     idTest: {
       type: 'uuid',
     },
@@ -22,15 +19,6 @@ module.exports = new EntitySchema({
     },
   },
   relations: {
-    student: {
-      target: TABLE.STUDENT,
-      type: 'many-to-one',
-      joinColumn: {
-        name: 'studentCode',
-      },
-      joinTable: true,
-      cascade: true,
-    },
     test: {
       target: TABLE.TEST,
       type: 'many-to-one',
