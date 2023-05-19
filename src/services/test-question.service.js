@@ -31,14 +31,21 @@ class TestQuestionService {
     }
   }
 
+  // find by id test to get all question and answer of this id test
   async findByIdTest({ id }) {
     const repo = dataSource.getRepository(TABLE.TEST_QUESTION);
     try {
-      return await repo.find({
-        where: {
-          idTest: id,
-        },
-      });
+      // return await repo.find({
+      //   where: {
+      //     idTest: id,
+      //   },
+      // });
+      return await repo
+        .createQueryBuilder('testQuestion')
+        .innerJoinAndSelect('testQuestion.question', 'question')
+        .innerJoinAndSelect('question.questionAnswers', 'questionAnswers')
+        .where('testQuestion.idTest = :id', { id })
+        .getOne();
     } catch (error) {
       throw new Error(error);
     }
