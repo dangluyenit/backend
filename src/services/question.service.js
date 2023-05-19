@@ -73,6 +73,15 @@ class QuestionService {
       throw new Error(error);
     }
   }
+
+  async findAnswer({ id }) {
+    const repo = dataSource.getRepository(TABLE.QUESTION);
+    return await repo
+      .createQueryBuilder('question')
+      .innerJoinAndSelect('question.questionAnswers', 'questionAnswers')
+      .where('question.id = :id', { id })
+      .getMany();
+  }
 }
 
 module.exports = new QuestionService();
