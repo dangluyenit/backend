@@ -80,7 +80,7 @@ class QuestionService {
       .createQueryBuilder('question')
       .innerJoinAndSelect('question.questionAnswers', 'questionAnswers')
       .where('question.id = :id', { id })
-      .getMany();
+      .getOne();
   }
 }
 
