@@ -28,5 +28,10 @@ module.exports = new EntitySchema({
       joinTable: true,
       cascade: true,
     },
+    questionAnswers: {
+      target: TABLE.QUESTION_ANSWER,
+      type: 'one-to-many',
+      inverseSide: 'question',
+    },
   },
 });
