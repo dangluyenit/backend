@@ -3,6 +3,9 @@
 const { dataSource } = require('../config/mssql.config');
 const { TABLE } = require('../constants/common.constant');
 const { QuestionAnswer } = require('../models/question-answer.model');
+const testQuestionService = require('../services/test-question.service');
+const scoreQuestionService = require('../services/score.service');
+const scoreService = require('../services/score.service');
 
 class QuestionAnswerService {
   async create({ answer, isCorrect, idQuestion }) {
@@ -45,6 +48,35 @@ class QuestionAnswerService {
     } catch (error) {
       throw new Error(error);
     }
+  }
+
+  async checkAnswers({ idTest, answers, studentCode }) {
+    const listQuestion = await testQuestionService.findByIdTest({ id: idTest });
+
+    const res = await Promise.all(
+      listQuestion.map(async (question) => {
+        return await this.findByIdQuestion({ id: question.idQuestion });
+      })
+    );
+
+    // score of one correct answer
+    const scoreOneCorrectAnswer = Number((10 / listQuestion.length).toFixed(1));
+    console.log(scoreOneCorrectAnswer);
+    let score = 0;
+    res.map((questionAnswers) => {
+      answers.map((answer) => {
+        questionAnswers.map((questionAnswer) => {
+          if (
+            answer.id.toUpperCase() === questionAnswer.id &&
+            questionAnswer.isCorrect
+          ) {
+            score += scoreOneCorrectAnswer;
+          }
+        });
+      });
+    });
+
+    return await scoreService.create({ idTest, studentCode, score });
   }
 }
 

@@ -77,6 +77,25 @@ class QuestionAnswerController {
       }).send(res);
     }
   }
+
+  async checkAnswers(req, res) {
+    const { idTest, answers, studentCode } = req.body;
+    try {
+      return new SuccessResponse({
+        message: `Check answers and save score for studentCode ${studentCode} successfully`,
+        metadata: await questionAnswerService.checkAnswers({
+          idTest,
+          answers,
+          studentCode,
+        }),
+      }).send(res);
+    } catch (error) {
+      return new ErrorResponse({
+        message: error.message,
+        statusCode: STATUS_CODE.INTERNAL_SERVER_ERROR,
+      }).send(res);
+    }
+  }
 }
 
 module.exports = new QuestionAnswerController();

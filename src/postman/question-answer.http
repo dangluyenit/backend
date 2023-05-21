@@ -30,3 +30,15 @@ GET {{hostname}}/question-answers
 
 ### API Find all question answer by id question
 GET {{hostname}}/question-answers/questions/537C959F-F0C3-44B6-8114-8CAC49C691D8
+
+### API check answers
+POST {{hostname}}/question-answers/check-answers
+Content-Type: application/json
+
+{
+  "idTest": "e8f607f2-80c3-41f5-8a6b-09774a674acf",
+  "answers": [
+    {"id": "f0236c02-19a4-47f9-aeac-0324e347dcc1"}
+  ],
+  "studentCode": "1"
+}
