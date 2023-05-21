@@ -76,6 +76,25 @@ class TestQuestionController {
       }).send(res);
     }
   }
+
+  async addRandomQuestion(req, res) {
+    const { quantity, idBankQuestion, idTest } = req.body;
+    try {
+      return new SuccessResponse({
+        message: `Add random question successfully`,
+        metadata: await testQuestionService.addRandomQuestion({
+          quantity,
+          idBankQuestion,
+          idTest,
+        }),
+      }).send(res);
+    } catch (error) {
+      return new ErrorResponse({
+        message: error.message,
+        statusCode: STATUS_CODE.INTERNAL_SERVER_ERROR,
+      }).send(res);
+    }
+  }
 }
 
 module.exports = new TestQuestionController();

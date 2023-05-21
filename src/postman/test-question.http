@@ -18,3 +18,13 @@ GET {{hostname}}/test-questions
 
 ### API Find test question by id test
 GET {{hostname}}/test-questions/tests/48CBD26F-50BA-488B-AF81-8F10EE54A661
+
+### API add random question to test question
+POST {{hostname}}/test-questions/addRandomQuestion
+Content-Type: application/json
+
+{
+  "quantity": 2,
+  "idBankQuestion": "0ef0414d-034f-4186-a63d-e05fb455889f",
+  "idTest": "e8f607f2-80c3-41f5-8a6b-09774a674acf"
+}

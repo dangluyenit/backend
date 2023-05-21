@@ -3,6 +3,7 @@
 const { dataSource } = require('../config/mssql.config');
 const { TABLE } = require('../constants/common.constant');
 const { TestQuestion } = require('../models/test-question.model');
+const questionRepository = require('../repositories/question.repository');
 
 class TestQuestionService {
   async create({ idTest, idQuestion }) {
@@ -42,6 +43,19 @@ class TestQuestionService {
     } catch (error) {
       throw new Error(error);
     }
+  }
+
+  async addRandomQuestion({ quantity, idBankQuestion, idTest }) {
+    const randomQuestion = await questionRepository.randomQuestion({
+      quantity,
+      idBankQuestion,
+    });
+
+    return await Promise.all(
+      randomQuestion.map(async (question) => {
+        return await this.create({ idQuestion: question.id, idTest });
+      })
+    );
   }
 }
 
