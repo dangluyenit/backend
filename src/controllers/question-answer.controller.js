@@ -78,12 +78,12 @@ class QuestionAnswerController {
     }
   }
 
-  async checkAnswers(req, res) {
+  async scoreCalculation(req, res) {
     const { idTest, answers, studentCode } = req.body;
     try {
       return new SuccessResponse({
         message: `Check answers and save score for studentCode ${studentCode} successfully`,
-        metadata: await questionAnswerService.checkAnswers({
+        metadata: await questionAnswerService.scoreCalculation({
           idTest,
           answers,
           studentCode,

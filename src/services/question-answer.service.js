@@ -50,7 +50,7 @@ class QuestionAnswerService {
     }
   }
 
-  async checkAnswers({ idTest, answers, studentCode }) {
+  async scoreCalculation({ idTest, answers, studentCode }) {
     const listQuestion = await testQuestionService.findByIdTest({ id: idTest });
 
     const res = await Promise.all(
