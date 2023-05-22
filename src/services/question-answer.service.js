@@ -60,7 +60,7 @@ class QuestionAnswerService {
     );
 
     // score of one correct answer
-    const scoreOneCorrectAnswer = Number((10 / listQuestion.length).toFixed(1));
+    const scoreOneCorrectAnswer = Number((listQuestion.length / 10).toFixed(1));
     console.log(scoreOneCorrectAnswer);
     let score = 0;
     res.map((questionAnswers) => {
