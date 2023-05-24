@@ -8,7 +8,8 @@ Content-Type: application/json
 {
   "name": "test1",
   "teacherCode": "1",
-  "quantityQuestion":12
+  "quantityQuestion":12,
+  "examDuration": 60,
 }
 
 ### API Find a test  by id
@@ -27,5 +28,6 @@ Content-Type: application/json
 {
   "name": "test2",
   "teacherCode": "1",
-  "quantityQuestion":12
+  "quantityQuestion":12,
+  "examDuration": 60,
 }

@@ -20,6 +20,9 @@ module.exports = new EntitySchema({
     quantityQuestion: {
       type: 'int',
     },
+    examDuration: {
+      type: 'int',
+    },
     teacherCode: {
       type: 'varchar',
     },

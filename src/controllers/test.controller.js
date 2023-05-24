@@ -6,7 +6,7 @@ const { STATUS_CODE } = require('../constants/common.constant');
 
 class TestController {
   async create(req, res) {
-    const { name, teacherCode, quantityQuestion } = req.body;
+    const { name, teacherCode, quantityQuestion, examDuration } = req.body;
     try {
       return new SuccessResponse({
         message: 'Created test successfully',
@@ -14,6 +14,7 @@ class TestController {
           name,
           teacherCode,
           quantityQuestion,
+          examDuration,
         }),
         statusCode: STATUS_CODE.CREATED,
       }).send(res);
@@ -85,7 +86,7 @@ class TestController {
   }
 
   async update(req, res) {
-    const { name, teacherCode, quantityQuestion } = req.body;
+    const { name, teacherCode, quantityQuestion, examDuration } = req.body;
     const { id } = req.params;
     try {
       const test = await testService.update({
@@ -93,6 +94,7 @@ class TestController {
         name,
         teacherCode,
         quantityQuestion,
+        examDuration,
       });
       if (test) {
         return new SuccessResponse({

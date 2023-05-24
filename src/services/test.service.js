@@ -5,13 +5,14 @@ const { TABLE } = require('../constants/common.constant');
 const { Test } = require('../models/test.model');
 
 class TestService {
-  async create({ name, teacherCode, quantityQuestion }) {
+  async create({ name, teacherCode, quantityQuestion, examDuration }) {
     const repo = dataSource.getRepository(TABLE.TEST);
     const test = new Test();
     test.name = name;
     test.quantityQuestion = quantityQuestion;
     test.teacherCode = teacherCode;
     test.createdTime = new Date().toString();
+    this.examDuration = examDuration;
     return await repo.save(test);
   }
 
@@ -44,7 +45,7 @@ class TestService {
     }
   }
 
-  async update({ id, name, teacherCode, quantityQuestion }) {
+  async update({ id, name, teacherCode, quantityQuestion, examDuration }) {
     const repo = dataSource.getRepository(TABLE.TEST);
     try {
       const test = await this.findOne({ id });
@@ -52,6 +53,7 @@ class TestService {
         test.name = name;
         test.teacherCode = teacherCode;
         test.quantityQuestion = quantityQuestion;
+        test.examDuration = examDuration;
         return await repo.save(test);
       }
       return null;
