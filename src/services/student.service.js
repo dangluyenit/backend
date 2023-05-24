@@ -37,14 +37,17 @@ class StudentService {
     const repo = dataSource.getRepository(TABLE.STUDENT);
     try {
       const student = await this.findOne({ studentCode });
-      console.log(studentCode, name, sex, dob, address, phone, image);
+
+      if (image) {
+        student.image = image.path;
+      }
+
       if (student) {
         student.name = name;
         student.sex = sex;
         student.dob = dob;
         student.address = address;
         student.phone = phone;
-        student.image = image;
         return await repo.save(student);
       }
       return null;

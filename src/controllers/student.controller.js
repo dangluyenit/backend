@@ -63,7 +63,8 @@ class StudentController {
   }
 
   async update(req, res) {
-    const { name, sex, dob, address, phone, image } = req.body;
+    const { name, sex, dob, address, phone } = req.body;
+    const image = req.file;
     const { studentCode } = req.params;
     try {
       const student = await studentService.update({
