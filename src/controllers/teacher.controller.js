@@ -63,7 +63,8 @@ class TeacherController {
   }
 
   async update(req, res) {
-    const { name, sex, dob, address, phone, image } = req.body;
+    const { name, sex, dob, address, phone } = req.body;
+    const image = req.file;
     const { teacherCode } = req.params;
     try {
       const teacher = await teacherService.update({

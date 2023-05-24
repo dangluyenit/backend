@@ -27,7 +27,7 @@ Authorization: {{token}}
 ### API update a teacher
 PUT {{hostname}}/teacher/1
 Authorization: {{token}}
-Content-Type: application/json
+Content-Type: multipart/form-data
 
 {
   "name": "hieu",
@@ -35,5 +35,5 @@ Content-Type: application/json
   "dob": "1995-12-01",
   "address": "Gia Lai",
   "phone": "0111111111",
-  "image": "test..."
+  "image": "..."
 }
