@@ -56,6 +56,21 @@ class ScoreController {
       }).send(res);
     }
   }
+
+  async findByStudentCode(req, res) {
+    const { studentCode } = req.params;
+    try {
+      return new SuccessResponse({
+        message: `Find score by studentCode ${studentCode} successfully`,
+        metadata: await scoreService.findByStudentCode({ studentCode }),
+      }).send(res);
+    } catch (error) {
+      return new ErrorResponse({
+        message: error.message,
+        statusCode: STATUS_CODE.INTERNAL_SERVER_ERROR,
+      }).send(res);
+    }
+  }
 }
 
 module.exports = new ScoreController();

@@ -32,6 +32,19 @@ class ScoreService {
       throw new Error(error);
     }
   }
+
+  async findByStudentCode({ studentCode }) {
+    const repo = dataSource.getRepository(TABLE.SCORE);
+    try {
+      return await repo
+        .createQueryBuilder('score')
+        .innerJoinAndSelect('score.test', 'test')
+        .where('score.studentCode = :studentCode', { studentCode })
+        .getMany();
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = new ScoreService();
