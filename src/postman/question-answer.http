@@ -31,8 +31,8 @@ GET {{hostname}}/question-answers
 ### API Find all question answer by id question
 GET {{hostname}}/question-answers/questions/537C959F-F0C3-44B6-8114-8CAC49C691D8
 
-### API check answers
-POST {{hostname}}/question-answers/check-answers
+### API score calculation
+POST {{hostname}}/question-answers/score-calculation
 Content-Type: application/json
 
 {
