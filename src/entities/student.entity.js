@@ -38,4 +38,11 @@ module.exports = new EntitySchema({
       type: 'varchar',
     },
   },
+  relations: {
+    scores: {
+      target: TABLE.SCORE,
+      type: 'one-to-many',
+      inverseSide: 'student',
+    },
+  },
 });
