@@ -1,12 +1,9 @@
-const path = require('path');
 const multer = require('multer');
 
-const PICTURE_FOLDER = '../../upload/';
+const PICTURE_FOLDER = 'upload';
 
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, PICTURE_FOLDER));
-  },
+  destination: PICTURE_FOLDER,
   filename: (req, file, cb) => {
     let filename = Date.now();
     switch (file.mimetype) {
