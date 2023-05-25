@@ -39,7 +39,7 @@ class TeacherService {
       const teacher = await this.findOne({ teacherCode });
 
       if (image) {
-        teacher.image = image.path;
+        teacher.image = image.path.slice(6);
       }
 
       if (teacher) {
