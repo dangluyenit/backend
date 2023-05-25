@@ -7,7 +7,7 @@ POST {{hostname}}/auth/admin/sign-in
 Content-Type: application/json
 
 {
-  "email": "hieu",
+  "username": "hieu",
   "password": "123"
 }
 
