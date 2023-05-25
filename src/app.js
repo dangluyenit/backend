@@ -6,6 +6,9 @@ require('dotenv').config();
 
 const app = express();
 
+// static file
+app.use(express.static('upload'));
+
 // connect to database
 require('./config/mssql.config');
 
