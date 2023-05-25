@@ -1,6 +1,6 @@
 const multer = require('multer');
 
-const PICTURE_FOLDER = 'upload';
+const PICTURE_FOLDER = 'public/images';
 
 const storage = multer.diskStorage({
   destination: PICTURE_FOLDER,
