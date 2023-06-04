@@ -56,6 +56,21 @@ class JoinCourseController {
       }).send(res);
     }
   }
+
+  async findByIdCourse(req, res) {
+    const { id } = req.params;
+    try {
+      return new SuccessResponse({
+        message: `Find join course by idCourse ${id} successfully`,
+        metadata: await joinCourseService.findByIdCourse({ id }),
+      }).send(res);
+    } catch (error) {
+      return new ErrorResponse({
+        message: error.message,
+        statusCode: STATUS_CODE.INTERNAL_SERVER_ERROR,
+      }).send(res);
+    }
+  }
 }
 
 module.exports = new JoinCourseController();

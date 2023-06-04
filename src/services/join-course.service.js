@@ -28,6 +28,19 @@ class JoinCourseService {
       throw new Error(error);
     }
   }
+
+  async findByIdCourse({ id }) {
+    const repo = dataSource.getRepository(TABLE.JOIN_COURSE);
+    try {
+      return await repo.find({
+        where: {
+          idCourse: id,
+        },
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = new JoinCourseService();
