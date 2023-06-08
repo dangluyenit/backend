@@ -12,7 +12,7 @@ class TestService {
     test.quantityQuestion = quantityQuestion;
     test.teacherCode = teacherCode;
     test.createdTime = new Date().toString();
-    this.examDuration = examDuration;
+    test.examDuration = examDuration;
     return await repo.save(test);
   }
 
